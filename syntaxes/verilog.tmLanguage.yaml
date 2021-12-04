@@ -1,0 +1,136 @@
+---
+"$schema": https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
+name: Verilog
+patterns:
+  - include: "#keywords"
+  - include: "#strings"
+  - include: "#comments"
+  - include: "#constants"
+repository:
+  keywords:
+    patterns:
+      - name: keyword.control.verilog
+        match: "\\b(if|while|for|return)\\b"
+  strings:
+    name: string.quoted.double.verilog
+    begin: '"'
+    end: '"'
+    patterns:
+      - name: constant.character.escape.verilog
+        match: "\\\\."
+  comments: # from https://github.com/atom/language-c/blob/master/grammars/c.cson
+    patterns:
+      - name: comment.block.verilog
+        begin: '/\*'
+        beginCaptures:
+          "0":
+            name: punctuation.definition.comment.begin.verilog
+        end: '\*/'
+        endCaptures:
+          "0":
+            name: punctuation.definition.comment.end.verilog
+      - name: invalid.illegal.stry-comment-end.verilog
+        match: '\*/.*\n'
+      - begin: '(^[ \t]+)?(?=//)'
+        beginCaptures:
+          "1":
+            name: punctuation.whitespace.comment.leading.verilog
+        end: '(?!\G)'
+        patterns:
+          - name: comment.line.double-slash.verilog
+            begin: "//"
+            beginCaptures:
+              "0":
+                name: punctuation.definition.comment.verilog
+            end: '\n'
+  constants:
+    patterns:
+      - name: constant.numeric.verilog
+        patterns:
+          - include: "#number-real"
+          - include: "#number-dec"
+          - include: "#number-hex"
+          - include: "#number-oct"
+          - include: "#number-bin"
+          - name: invalid.illegal.name.verilog"
+            match: '\b[0-9]+\w+' # identifier can't start with number
+  number-bin:
+    name: constant.numeric.bin.verilog
+    match: >
+      (?x)
+        (?<![\w\.])          # not precede by a word
+        (
+          ([1-9][_0-9]*)?    # size
+          '[sS]?[bB]         # binary base
+        )
+        [01xXzZ?][_01xXzZ?]* # binary value
+        \b                   # boundary
+    captures:
+      "1":
+        name: storage.type.number.verilog
+  number-oct:
+    name: constant.numeric.oct.verilog
+    match: >
+      (?x)
+        (?<![\w\.])            # not precede by a word
+        (
+          ([1-9][_0-9]*)?      # size
+          '[sS]?[oO]           # octal base
+        )
+        [0-7xXzZ?][_0-7xXzZ?]* # octal value
+        \b                     # boundary
+    captures:
+      "1":
+        name: storage.type.number.verilog
+  number-hex:
+    name: constant.numeric.hex.verilog
+    match: >
+      (?x)
+        (?<![\w\.])                        # not precede by a word
+        (
+          ([1-9][_0-9]*)?                  # size
+          '[sS]?[hH]                       # hex base
+        )
+        [0-9a-fA-FxXzZ?][_0-9a-fA-FxXzZ?]* # hex value
+        \b                                 # boundary
+    captures:
+      "1":
+        name: storage.type.number.verilog
+  number-dec:
+    name: constant.numeric.dec.verilog
+    match: >
+      (?x)
+        (?:
+          (?<![\w\.])                      # not precede by a word
+            [0-9][0-9_]*                   # unsigned number
+          | (?:
+            (
+              ([1-9][_0-9]*)?              # size
+              '[sS]?[dD]                   # decimal base
+            )
+              [0-9][0-9_]*                 # unsigned number
+            | [xXzZ?]_*
+          )
+        )
+        (?!')                              # not followed by a ' (allowing bin, hex ... to match)
+        \b                                 # boundary
+    captures:
+      "1":
+        name: storage.type.number.verilog
+  number-real:
+    name: constant.numeric.float.verilog
+    match: >
+      (?x)
+        (?<![\w\.])                           # not precede by a word
+        (?:
+            [0-9][0-9_]* \. [0-9][0-9_]*      # unsigned number . unsigned number
+          | [0-9][0-9_]* (?:\. [0-9][0-9_]*)?
+            [eE] [+-]? [0-9][0-9_]*           # exp sign unsigned number
+        )
+        (?!')                                 # not followed by a ' (allowing dec, bin ... to match)
+        \b                                    # boundary
+    captures:
+      "1":
+        name: storage.type.number.verilog
+
+scopeName: source.verilog
