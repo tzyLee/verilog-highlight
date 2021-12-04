@@ -1,30 +1,43 @@
 {
-    "comments": {
-        // symbol used for single line comment. Remove this entry if your language does not support line comments
-        "lineComment": "//",
-        // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
-        "blockComment": [ "/*", "*/" ]
-    },
-    // symbols used as brackets
-    "brackets": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"]
-    ],
-    // symbols that are auto closed when typing
-    "autoClosingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["\"", "\""],
-        ["'", "'"]
-    ],
-    // symbols that can be used to surround a selection
-    "surroundingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["\"", "\""],
-        ["'", "'"]
-    ]
+  "comments": {
+    // symbol used for single line comment. Remove this entry if your language does not support line comments
+    "lineComment": "//",
+    // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+    "blockComment": ["/*", "*/"]
+  },
+  // symbols used as brackets
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["begin", "end"],
+    ["fork", "join"],
+    ["case", "endcase"],
+    ["casex", "endcase"],
+    ["casez", "endcase"],
+    ["config", "endconfig"],
+    ["function", "endfunction"],
+    ["generate", "endgenerate"],
+    ["macromodule", "endmodule"],
+    ["module", "endmodule"],
+    ["primitive", "endprimitive"],
+    ["specify", "endspecify"],
+    ["table", "endtable"],
+    ["task", "endtask"]
+  ],
+  // symbols that are auto closed when typing
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    { "open": "\"", "close": "\"", "notIn": ["string"] },
+    { "open": "begin", "close": "end", "notIn": ["string", "comment"] }
+  ],
+  // symbols that can be used to surround a selection
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""]
+  ]
 }
