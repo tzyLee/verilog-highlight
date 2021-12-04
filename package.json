@@ -1,39 +1,47 @@
 {
-    "name": "verilog-highlight",
-    "displayName": "verilog-highlight",
-    "description": "",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.62.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "verilog",
-                "aliases": [
-                    "Verilog",
-                    "verilog"
-                ],
-                "extensions": [
-                    ".v",
-                    ".vh",
-                    ".vl"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+  "name": "verilog-highlight",
+  "displayName": "verilog-highlight",
+  "description": "",
+  "scripts": {
+    "build": "yarn build:grammar",
+    "build:grammar": "tsc -b build -v && node build/build.js"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.62.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "verilog",
+        "aliases": [
+          "Verilog",
+          "verilog"
         ],
-        "grammars": [
-            {
-                "language": "verilog",
-                "scopeName": "source.verilog",
-                "path": "./syntaxes/verilog.tmLanguage.json"
-            }
-        ]
-    },
-    "devDependencies": {
-        "js-yaml": "^4.1.0"
-    }
+        "extensions": [
+          ".v",
+          ".vh",
+          ".vl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "verilog",
+        "scopeName": "source.verilog",
+        "path": "./Verilog.tmLanguage"
+      }
+    ]
+  },
+  "dependencies": {
+    "@types/js-yaml": "latest",
+    "@types/node": "latest",
+    "js-yaml": "latest",
+    "typescript": "latest",
+    "plist": "latest"
+  }
 }
