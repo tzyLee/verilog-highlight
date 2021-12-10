@@ -21,9 +21,9 @@ variables:
 patterns:
   - include: "#module-declaration"
   - include: "#keywords"
-  # - include: "#strings"
+  - include: "#strings"
   - include: "#comments"
-  # - include: "#constants"
+  - include: "#constants"
 
 repository:
   keywords:
@@ -42,9 +42,7 @@ repository:
       - name: keyword.other.event.verilog
         match: '\b(posedge|negedge|or)\b'
       - name: support.type.verilog
-        match: '\b(event)\b'
-      - name: support.type.verilog
-        match: '\b(reg|trireg)\b'
+        match: '\b(event|reg|trireg)\b'
       - name: keyword.other.block.verilog
         match: '\b(begin|end|fork|join)\b'
       - name: keyword.other.assign.verilog
@@ -81,20 +79,26 @@ repository:
     endCaptures:
       "1": { name: storage.type.module.verilog }
     patterns:
-      - include: '#comments'
       - include: "#module-declaration-header"
-      - include: "#module-item"
+      - include: '#comments'
+      - include: '#module-body'
   module-declaration-header:
     begin: '(?<=module|macromodule)'
     end: ";"
     endCaptures:
       '0': { name: punctuation.section.module.begin.verilog }
     patterns:
-      - include: '#comments' # TODO fix newline between `module` and `identifer`
+      - include: '#comments'
       - name: entity.name.type.module.verilog
         match: '{{variableIdentifier}}'
       - include: "#module-parameter"
       - include: '#list-of-ports'
+  module-body:
+    name: meta.module.body.verilog
+    begin: '(?<=;)'
+    end: '(?=endmodule)'
+    patterns:
+      - include: "#module-item"
 # A.1.3
   list-of-ports:
     begin: '\('
@@ -122,7 +126,7 @@ repository:
       - include: '#module-or-generate-item-declaration'
       - include: '#continuous-assignment'
       - name: keyword.control.verilog
-        match: '\b(always|initial)\b' # TODO fix initial coloring
+        match: '\b(always|initial)\b' # TODO fix initial coloring (break by compiler directives)
       # Textmate can't easily capture `always`, `inital`, (no simply way to tell apart module instantiation and variable assignment)
       # moving `statement` and `timing control` to this level is easier
       - include: "#statement"
@@ -131,6 +135,8 @@ repository:
       - include: '#net-declaration'
       - include: '#reg-declaration'
       - include: '#var-declaration'
+      - include: '#function_declaration'
+      - include: '#task_declaration'
 # A.2.1.1
   module-parameter:
     begin: '#\('
@@ -171,7 +177,7 @@ repository:
     begin: '\b(inout|output|input)\b'
     beginCaptures:
       '1': { name: keyword.other.port.verilog }
-    end: '(?=\b(inout|output|input)|\);)'
+    end: '(?=\b(inout|output|input)|\);)' # TODO: ) and ; may not be on the same line
     patterns:
       - include: '#port-declaration-content'
   port-declaration-statement:
@@ -224,7 +230,7 @@ repository:
       - include: '#range'
       - include: '#list-of-identifiers'
   var-declaration:
-    begin: '\b(event|real|realtime|integer|time)\b'
+    begin: '\b(event|real|realtime|integer|time|genvar)\b'
     beginCaptures:
       '1': { name: support.type.verilog }
     end: ';'
@@ -247,6 +253,26 @@ repository:
   range:
     patterns:
       - include: "#item-access"
+# A.2.6 # TODO
+  function_declaration:
+    begin: '\b(function)\b'
+    beginCaptures:
+      '1': { name: storage.type.function }
+    end: '\b(endfunction)\b'
+    endCaptures:
+      '1': { name: storage.type.function }
+    patterns:
+      - include: '#statement'
+# A.2.7 # TODO
+  task_declaration:
+    begin: '\b(task)\b'
+    beginCaptures:
+      '1': { name: storage.type.task }
+    end: '\b(endtask)\b'
+    endCaptures:
+      '1': { name: storage.type.task }
+    patterns:
+      - include: '#statement'
 # A.6.1
   continuous-assignment:
     name: meta.continuous-assignment.verilog
@@ -331,6 +357,8 @@ repository:
       - include: '#parallel-block'
       - include: '#sequential-block'
       - include: '#conditional-statement'
+      - include: '#loop-statement'
+      - include: '#wait-statement'
       - include: '#case-statement'
       - include: '#blocking-assignment'
       - include: '#nonblocking-assignment'
@@ -396,12 +424,15 @@ repository:
     patterns:
       - include: '#delay-control'
       - include: '#event-control'
+  wait-statement:
+    patterns:
+      - name: keyword.control.verilog
+        match: '\b(wait)\b'
 # A.6.6
   conditional-statement:
     patterns:
       - name: keyword.control.verilog
         match: '\b(if|else)\b'
-      - include: '#round-braces'
 # A.6.7
   case-statement:
     begin: '\b(case|casez|casex)\b'
@@ -425,6 +456,11 @@ repository:
         match: ':'
       - include: '#statement-or-null'
       - include: '#expression-list'
+# A.6.8
+  loop-statement:
+    patterns:
+      - name: keyword.control.verilog
+        match: '\b(forever|repeat|while|for)\b'
 # A.8.1
   concatenation:
     name: meta.concatenation.verilog
@@ -548,12 +584,12 @@ repository:
     comment: "Operators are order in a way such that more specific operators will come first (e.g. !== comes before !=)"
     match: |-
       (?x)
-        (!== | === | != | == | >= | <=)                                  # comparison operator
-        | (&& | \|\| | !)                                                # logical operator
+        (!== | === | != | == | >= | <=) # comparison operator
+        | (&& | \|\| | !) # logical operator
         | (>>> | <<< | >> | << | ~& | ~\| | ~\^ | ~ | & | \| | \^~ | \^) # bitwise operator
-        | (\*\* | \* | \+ | - | % | /)                                   # arithmetic operator
-        | (> | <)                                                        # comparison operator
-        | (\? | :)                                                       # ternary operator
+        | (\*\* | \* | \+ | - | % | /) # arithmetic operator
+        | (> | <) # comparison operator
+        | (\? | :) # ternary operator
     captures:
       "1": { name: keyword.operator.logicomparisoncal.verilog }
       "2": { name: keyword.operator.logical.verilog }
@@ -577,39 +613,39 @@ repository:
     name: constant.numeric.bin.verilog
     match: |-
       (?x)
-        (?<![\w\.])          # not precede by a word
+        (?<![\w\.]) # not precede by a word
         (
-          ({{nonZeroUnsignedNum}})?    # size
-          '[sS]?[bB]         # binary base
+          ({{nonZeroUnsignedNum}})? # size
+          '[sS]?[bB] # binary base
         )
         [01xXzZ?][_01xXzZ?]* # binary value
-        \b                   # boundary
+        \b # boundary
     captures:
       "1": { name: storage.type.number.verilog }
   number-oct:
     name: constant.numeric.oct.verilog
     match: |-
       (?x)
-        (?<![\w\.])            # not precede by a word
+        (?<![\w\.]) # not precede by a word
         (
-          ({{nonZeroUnsignedNum}})?      # size
-          '[sS]?[oO]           # octal base
+          ({{nonZeroUnsignedNum}})? # size
+          '[sS]?[oO] # octal base
         )
         [0-7xXzZ?][_0-7xXzZ?]* # octal value
-        \b                     # boundary
+        \b # boundary
     captures:
       "1": { name: storage.type.number.verilog }
   number-hex:
     name: constant.numeric.hex.verilog
     match: |-
       (?x)
-        (?<![\w\.])                        # not precede by a word
+        (?<![\w\.]) # not precede by a word
         (
-          ({{nonZeroUnsignedNum}})?                  # size
-          '[sS]?[hH]                       # hex base
+          ({{nonZeroUnsignedNum}})? # size
+          '[sS]?[hH] # hex base
         )
         [0-9a-fA-FxXzZ?][_0-9a-fA-FxXzZ?]* # hex value
-        \b                                 # boundary
+        \b # boundary
     captures:
       "1": { name: storage.type.number.verilog }
   number-dec:
@@ -617,19 +653,19 @@ repository:
     match: |-
       (?x)
         (?:
-          (?<![\w\.])                      # not precede by a word
+          (?<![\w\.]) # not precede by a word
             {{unsignedNum}}
           | (?:
             (
-              ({{nonZeroUnsignedNum}})?        # size
-              '[sS]?[dD]                   # decimal base
+              ({{nonZeroUnsignedNum}})? # size
+              '[sS]?[dD] # decimal base
             )
-              {{unsignedNum}}           # unsigned number
+              {{unsignedNum}} # unsigned number
             | (?<='[sS]?[dD])[xXzZ?]_*
           )
         )
-        (?!')                              # not followed by a ' (allowing bin, hex ... to match)
-        \b                                 # boundary
+        (?!') # not followed by a ' (allowing bin, hex ... to match)
+        \b # boundary
     captures:
       "1":
         name: storage.type.number.verilog
@@ -637,14 +673,14 @@ repository:
     name: constant.numeric.float.verilog
     match: |-
       (?x)
-        (?<![\w\.])                           # not precede by a word
+        (?<![\w\.]) # not precede by a word
         (?:
-            {{unsignedNum}}\. {{unsignedNum}}     # unsigned number . unsigned number
+            {{unsignedNum}}\. {{unsignedNum}} # unsigned number . unsigned number
           | {{unsignedNum}}(?:\. {{unsignedNum}})?
-            [eE] [+-]? {{unsignedNum}}          # exp sign unsigned number
+            [eE] [+-]? {{unsignedNum}} # exp sign unsigned number
         )
-        (?!')                                 # not followed by a ' (allowing dec, bin ... to match)
-        \b                                    # boundary
+        (?!') # not followed by a ' (allowing dec, bin ... to match)
+        \b # boundary
     captures:
       "1":
         name: storage.type.number.verilog
@@ -689,6 +725,8 @@ repository:
   identifiers:
     patterns:
       - include: '#text-macro'
+      - name: entity.name.function.call.system.verilog
+        match: '{{systemIdentifier}}'
       - name: variable.other.constant.verilog
         match: '{{constantVar}}'
       - name: variable.other.readwrite.verilog
