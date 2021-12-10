@@ -40,4 +40,15 @@
     ["(", ")"],
     ["\"", "\""]
   ]
+  // Do not highlight module/endmodule etc.
+  // "colorizedBracketPairs": [
+  //   ["(", ")"],
+  //   ["[", "]"],
+  //   ["{", "}"],
+  //   ["begin", "end"],
+  //   ["fork", "join"],
+  //   ["casex", "endcase"],
+  //   ["casez", "endcase"],
+  //   ["case", "endcase"]
+  // ]
 }

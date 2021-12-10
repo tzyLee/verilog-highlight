@@ -1,0 +1,36 @@
+>module;
+#^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+#      ^ source.verilog meta.module.verilog punctuation.section.module.begin.verilog
+>endmodule
+#^^^^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+>
+>module();
+#^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+#      ^ source.verilog meta.module.verilog punctuation.definition.ports.begin.verilog
+#       ^ source.verilog meta.module.verilog punctuation.definition.ports.end.verilog
+#        ^ source.verilog meta.module.verilog punctuation.section.module.begin.verilog
+>endmodule
+#^^^^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+>
+>module /**/ //
+#^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+#      ^ source.verilog meta.module.verilog
+#       ^^ source.verilog meta.module.verilog comment.block.verilog punctuation.definition.comment.begin.verilog
+#         ^^ source.verilog meta.module.verilog comment.block.verilog punctuation.definition.comment.end.verilog
+#           ^ source.verilog meta.module.verilog
+#            ^^ source.verilog meta.module.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+>(/**/ //
+#^ source.verilog meta.module.verilog punctuation.definition.ports.begin.verilog
+# ^^ source.verilog meta.module.verilog comment.block.verilog punctuation.definition.comment.begin.verilog
+#   ^^ source.verilog meta.module.verilog comment.block.verilog punctuation.definition.comment.end.verilog
+#     ^ source.verilog meta.module.verilog
+#      ^^ source.verilog meta.module.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+>
+>) //
+#^ source.verilog meta.module.verilog punctuation.definition.ports.end.verilog
+# ^ source.verilog meta.module.verilog
+#  ^^ source.verilog meta.module.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+>;
+#^ source.verilog meta.module.verilog punctuation.section.module.begin.verilog
+>endmodule
+#^^^^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog

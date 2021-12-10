@@ -2,9 +2,11 @@
   "name": "verilog-highlight",
   "displayName": "verilog-highlight",
   "description": "",
+  "license": "MIT",
   "scripts": {
     "build": "yarn build:grammar",
-    "build:grammar": "tsc -b build -v && node build/build.js"
+    "build:grammar": "tsc -b build -v && node build/build.js",
+    "test": "yarn build && yarn vscode-tmgrammar-snap -t './test/*.v' -s source.verilog -g './Verilog.tmLanguage'"
   },
   "version": "0.0.1",
   "engines": {
@@ -46,7 +48,8 @@
     "@types/js-yaml": "latest",
     "@types/node": "latest",
     "js-yaml": "latest",
+    "plist": "latest",
     "typescript": "latest",
-    "plist": "latest"
+    "vscode-tmgrammar-test": "^0.0.11"
   }
 }
