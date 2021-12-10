@@ -35,7 +35,12 @@
         "scopeName": "source.verilog",
         "path": "./Verilog.tmLanguage"
       }
-    ]
+    ],
+    "configurationDefaults": {
+      "[verilog]": {
+        "editor.wordSeparators": "~!@#%^&*()-=+[{]}\\|;:\",.<>/?"
+      }
+    }
   },
   "dependencies": {
     "@types/js-yaml": "latest",
