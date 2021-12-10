@@ -362,11 +362,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#function_declaration</string>
+            <string>#function-declaration</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#task_declaration</string>
+            <string>#task-declaration</string>
           </dict>
         </array>
       </dict>
@@ -406,11 +406,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#parameter_types</string>
+            <string>#parameter-types</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#parameter_assignment</string>
+            <string>#parameter-assignment</string>
           </dict>
           <dict>
             <key>include</key>
@@ -418,7 +418,7 @@
           </dict>
         </array>
       </dict>
-      <key>parameter_assignment</key>
+      <key>parameter-assignment</key>
       <dict>
         <key>patterns</key>
         <array>
@@ -443,7 +443,7 @@
       <key>local-parameter-declaration</key>
       <dict>
         <key>begin</key>
-        <string>\b(localparam)\b</string>
+        <string>\b(localparam|parameter)\b</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -476,11 +476,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#parameter_types</string>
+            <string>#parameter-types</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#parameter_assignment</string>
+            <string>#parameter-assignment</string>
           </dict>
           <dict>
             <key>include</key>
@@ -736,7 +736,7 @@
           </dict>
         </array>
       </dict>
-      <key>function_declaration</key>
+      <key>function-declaration</key>
       <dict>
         <key>begin</key>
         <string>\b(function)\b</string>
@@ -762,11 +762,73 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#function-declaration-header</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block-item-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#port-declaration-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#statement</string>
           </dict>
         </array>
       </dict>
-      <key>task_declaration</key>
+      <key>function-declaration-header</key>
+      <dict>
+        <key>begin</key>
+        <string>(?&lt;=function)</string>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.section.function.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>\b(automatic|signed)\b</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#output-variable-types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#real-types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#range</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.verilog</string>
+            <key>match</key>
+            <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#list-of-ports</string>
+          </dict>
+        </array>
+      </dict>
+      <key>task-declaration</key>
       <dict>
         <key>begin</key>
         <string>\b(task)\b</string>
@@ -792,7 +854,79 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#task-declaration-header</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block-item-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#port-declaration-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#statement</string>
+          </dict>
+        </array>
+      </dict>
+      <key>task-declaration-header</key>
+      <dict>
+        <key>begin</key>
+        <string>(?&lt;=task)</string>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.section.task.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>\b(automatic)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>entity.name.task.verilog</string>
+            <key>match</key>
+            <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#list-of-ports</string>
+          </dict>
+        </array>
+      </dict>
+      <key>block-item-declaration</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#net-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#reg-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#var-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#local-parameter-declaration</string>
           </dict>
         </array>
       </dict>
@@ -838,7 +972,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#net-assignment</string>
+            <string>#assignment</string>
           </dict>
           <dict>
             <key>include</key>
@@ -846,7 +980,7 @@
           </dict>
         </array>
       </dict>
-      <key>net-assignment</key>
+      <key>assignment</key>
       <dict>
         <key>patterns</key>
         <array>
@@ -860,7 +994,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#expression</string>
+            <string>#lvalue</string>
           </dict>
         </array>
       </dict>
@@ -877,8 +1011,11 @@
             <string>=</string>
             <key>beginCaptures</key>
             <dict>
-              <key>name</key>
-              <string>keyword.other.assign.verilog</string>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.assign.verilog</string>
+              </dict>
             </dict>
             <key>end</key>
             <string>;</string>
@@ -900,7 +1037,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#expression</string>
+            <string>#lvalue</string>
           </dict>
         </array>
       </dict>
@@ -917,15 +1054,21 @@
             <string>&lt;=</string>
             <key>beginCaptures</key>
             <dict>
-              <key>name</key>
-              <string>keyword.operator.nonblocking-assignment.verilog</string>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.nonblocking-assignment.verilog</string>
+              </dict>
             </dict>
             <key>end</key>
             <string>;</string>
             <key>endCaptures</key>
             <dict>
-              <key>name</key>
-              <string>punctuation.terminator.statement.verilog</string>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.terminator.statement.verilog</string>
+              </dict>
             </dict>
             <key>patterns</key>
             <array>
@@ -937,7 +1080,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#expression</string>
+            <string>#lvalue</string>
           </dict>
         </array>
       </dict>
@@ -1077,6 +1220,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#task-enable</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#blocking-assignment</string>
           </dict>
           <dict>
@@ -1086,6 +1233,29 @@
           <dict>
             <key>include</key>
             <string>#procedural-timing-control</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\(</string>
+            <key>end</key>
+            <string>\)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#assignment</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>punctuation.separator.statement.verilog</string>
+                <key>match</key>
+                <string>;</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>
@@ -1154,7 +1324,7 @@
             <key>name</key>
             <string>constant.numeric.unsigned.verilog</string>
             <key>match</key>
-            <string>[0-9][_0-9]*</string>
+            <string>[0-9][_0-9]*(?!')</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1398,6 +1568,19 @@
             <string>\b(forever|repeat|while|for)\b</string>
           </dict>
         </array>
+      </dict>
+      <key>task-enable</key>
+      <dict>
+        <key>match</key>
+        <string>([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s))(?=[\(;])</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.call.verilog</string>
+          </dict>
+        </dict>
       </dict>
       <key>concatenation</key>
       <dict>
@@ -1711,6 +1894,24 @@
           </dict>
         </array>
       </dict>
+      <key>lvalue</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#hierarchical-identifier</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#concatenation</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#item-access</string>
+          </dict>
+        </array>
+      </dict>
       <key>operator</key>
       <dict>
         <key>comment</key>
@@ -1728,7 +1929,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.operator.logicomparisoncal.verilog</string>
+            <string>keyword.operator.comparison.verilog</string>
           </dict>
           <key>2</key>
           <dict>
@@ -2032,7 +2233,7 @@
             <key>name</key>
             <string>variable.other.constant.verilog</string>
             <key>match</key>
-            <string>([[:upper:]][_$[:digit:][:upper:]]*)(?![_$[:alnum:]])</string>
+            <string>([_[:upper:]][_$[:digit:][:upper:]]*)(?![_$[:alnum:]])</string>
           </dict>
           <dict>
             <key>name</key>

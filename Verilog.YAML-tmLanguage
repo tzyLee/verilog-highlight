@@ -12,10 +12,9 @@ variables:
   unsignedNum: "[0-9][_0-9]*"
   nonZeroUnsignedNum: "[1-9][_0-9]*"
   commentOrSpace: '(/\*.*\*/)|(//.*\n)|\s'
-  constantIdentifier: '[[:upper:]][_$[:digit:][:upper:]]*'
+  constantIdentifier: '[_[:upper:]][_$[:digit:][:upper:]]*'
   constantVar: '({{constantIdentifier}})(?![_$[:alnum:]])'
   netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
-  endOfStatement: '(?:;|end|join|endcase)'
 
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
@@ -135,8 +134,8 @@ repository:
       - include: '#net-declaration'
       - include: '#reg-declaration'
       - include: '#var-declaration'
-      - include: '#function_declaration'
-      - include: '#task_declaration'
+      - include: '#function-declaration'
+      - include: '#task-declaration'
 # A.2.1.1
   module-parameter:
     begin: '#\('
@@ -149,17 +148,17 @@ repository:
       - name: keyword.other.verilog
         match: '\b(parameter|signed)\b'
       - include: '#range'
-      - include: '#parameter_types'
-      - include: '#parameter_assignment'
+      - include: '#parameter-types'
+      - include: '#parameter-assignment'
       - include: '#punctuation-comma'
-  parameter_assignment:
+  parameter-assignment:
     patterns:
       - include: '#comments'
       - include: '#identifiers'
       - include: '#punctuation-assignment'
       - include: '#expression'
-  local-parameter-declaration:
-    begin: '\b(localparam)\b'
+  local-parameter-declaration: # merge parameter and localparam for brevity
+    begin: '\b(localparam|parameter)\b'
     beginCaptures:
       '1': { name: keyword.other.verilog }
     end: ';'
@@ -169,8 +168,8 @@ repository:
       - name: keyword.other.verilog
         match: '\b(signed)\b'
       - include: '#range'
-      - include: '#parameter_types'
-      - include: '#parameter_assignment'
+      - include: '#parameter-types'
+      - include: '#parameter-assignment'
       - include: '#punctuation-comma'
 # A.2.1.2
   port-declarations:
@@ -253,8 +252,8 @@ repository:
   range:
     patterns:
       - include: "#item-access"
-# A.2.6 # TODO
-  function_declaration:
+# A.2.6
+  function-declaration:
     begin: '\b(function)\b'
     beginCaptures:
       '1': { name: storage.type.function }
@@ -262,9 +261,27 @@ repository:
     endCaptures:
       '1': { name: storage.type.function }
     patterns:
+      - include: '#function-declaration-header'
+      - include: '#block-item-declaration'
+      - include: '#port-declaration-statement'
       - include: '#statement'
-# A.2.7 # TODO
-  task_declaration:
+  function-declaration-header:
+    begin: '(?<=function)'
+    end: ";"
+    endCaptures:
+      '0': { name: punctuation.section.function.begin.verilog }
+    patterns:
+      - include: '#comments'
+      - name: keyword.other.verilog
+        match: '\b(automatic|signed)\b'
+      - include: '#output-variable-types'
+      - include: '#real-types'
+      - include: '#range'
+      - name: entity.name.function.verilog
+        match: '{{variableIdentifier}}'
+      - include: '#list-of-ports'
+# A.2.7
+  task-declaration:
     begin: '\b(task)\b'
     beginCaptures:
       '1': { name: storage.type.task }
@@ -272,7 +289,29 @@ repository:
     endCaptures:
       '1': { name: storage.type.task }
     patterns:
+      - include: '#task-declaration-header'
+      - include: '#block-item-declaration'
+      - include: '#port-declaration-statement'
       - include: '#statement'
+  task-declaration-header:
+    begin: '(?<=task)'
+    end: ";"
+    endCaptures:
+      '0': { name: punctuation.section.task.begin.verilog }
+    patterns:
+      - include: '#comments'
+      - name: keyword.other.verilog
+        match: '\b(automatic)\b'
+      - name: entity.name.task.verilog
+        match: '{{variableIdentifier}}'
+      - include: '#list-of-ports'
+# A.2.8
+  block-item-declaration:
+    patterns:
+      - include: '#net-declaration'
+      - include: '#reg-declaration'
+      - include: '#var-declaration'
+      - include: '#local-parameter-declaration'
 # A.6.1
   continuous-assignment:
     name: meta.continuous-assignment.verilog
@@ -287,37 +326,40 @@ repository:
   list-of-net-assignments:
     patterns:
       - include: '#comments'
-      - include: '#net-assignment'
+      - include: '#assignment'
       - include: '#punctuation-comma'
-  net-assignment:
+  assignment:
     patterns:
       - include: '#comments'
       - include: '#punctuation-assignment'
-      - include: '#expression'
+      - include: '#lvalue'
 # A.6.2
   blocking-assignment:
     patterns:
       - include: '#comments'
       - begin: '='
-        beginCaptures: { name: keyword.other.assign.verilog }
+        beginCaptures:
+          '0': { name: keyword.operator.assign.verilog }
         end: ';'
         endCaptures:
           '0': { name: punctuation.terminator.statement.verilog }
         patterns:
           # capture expressions in-between = and ; to avoid ternary operators being parsed as block labels
           - include: '#expression'
-      - include: '#expression'
+      - include: '#lvalue'
   nonblocking-assignment:
     patterns:
       - include: '#comments'
       - begin: '<='
-        beginCaptures: { name: keyword.operator.nonblocking-assignment.verilog }
+        beginCaptures:
+          '0': { name: keyword.operator.nonblocking-assignment.verilog }
         end: ';'
-        endCaptures: { name: punctuation.terminator.statement.verilog }
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
         patterns:
           # capture expressions in-between <= and ; to avoid ternary operators being parsed as block labels
           - include: '#expression'
-      - include: '#expression'
+      - include: '#lvalue'
 # A.6.3
   parallel-block:
     name: meta.parallel-block.verilog
@@ -360,9 +402,17 @@ repository:
       - include: '#loop-statement'
       - include: '#wait-statement'
       - include: '#case-statement'
+      - include: '#task-enable' # need to be before assignments
       - include: '#blocking-assignment'
       - include: '#nonblocking-assignment'
       - include: '#procedural-timing-control'
+      - begin: '\(' # condition of for loop
+        end: '\)'
+        patterns:
+          - include: '#assignment'
+          - name: punctuation.separator.statement.verilog
+            match: ';'
+          - include: '#expression'
   statement-or-null:
     patterns:
       - include: '#statement'
@@ -385,7 +435,7 @@ repository:
       - name: keyword.operator.delay.verilog
         match: '#'
       - name: constant.numeric.unsigned.verilog
-        match: '{{unsignedNum}}'
+        match: "{{unsignedNum}}(?!')"
       - include: '#number-real'
       - include: '#identifier'
   event-control:
@@ -455,12 +505,19 @@ repository:
       - name: punctuaton.definition.section.case.verilog
         match: ':'
       - include: '#statement-or-null'
-      - include: '#expression-list'
+      - include: '#expression-list' # TODO fix case items
 # A.6.8
   loop-statement:
     patterns:
       - name: keyword.control.verilog
         match: '\b(forever|repeat|while|for)\b'
+# A.6.9
+  task-enable:
+    # Most of the cases are matched as function calls,
+    # The rule exists to highlight the task identifier
+    match: '({{variableIdentifier}})(?=[\(;])'
+    captures:
+      '1': { name: entity.name.function.call.verilog }
 # A.8.1
   concatenation:
     name: meta.concatenation.verilog
@@ -579,6 +636,13 @@ repository:
       - name: punctuation.seperator.range.verilog
         match: ':'
       - include: '#expression'
+# A.8.5
+  lvalue:
+    patterns:
+      # - include: "#comments"
+      - include: "#hierarchical-identifier"
+      - include: "#concatenation"
+      - include: "#item-access"
 # A.8.6
   operator:
     comment: "Operators are order in a way such that more specific operators will come first (e.g. !== comes before !=)"
@@ -591,7 +655,7 @@ repository:
         | (> | <) # comparison operator
         | (\? | :) # ternary operator
     captures:
-      "1": { name: keyword.operator.logicomparisoncal.verilog }
+      "1": { name: keyword.operator.comparison.verilog }
       "2": { name: keyword.operator.logical.verilog }
       "3": { name: keyword.operator.bitwise.verilog }
       "4": { name: keyword.operator.arithmetic.verilog }
