@@ -6,7 +6,8 @@
   "scripts": {
     "build": "yarn build:grammar",
     "build:grammar": "tsc -b build -v && node build/build.js",
-    "test": "yarn build && yarn vscode-tmgrammar-snap -t './test/*.v' -s source.verilog -g './Verilog.tmLanguage'"
+    "test": "yarn build && yarn vscode-tmgrammar-snap -t './test/*.v' -s source.verilog -g './Verilog.tmLanguage'",
+    "test:update": "yarn build && yarn vscode-tmgrammar-snap -t './test/*.v' -s source.verilog -g './Verilog.tmLanguage' --updateSnapshot"
   },
   "version": "0.0.1",
   "engines": {

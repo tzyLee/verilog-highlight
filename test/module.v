@@ -1,10 +1,12 @@
-module;
+module _testbed_01$;
 endmodule
 
-module();
+module/**/test();
 endmodule
 
-module /**/ //
+module/**/ //
+/**/ module_name
+//
 (/**/ //
 
 ) //
