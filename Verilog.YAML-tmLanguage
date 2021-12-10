@@ -3,6 +3,7 @@
 name: Verilog
 
 variables:
+  startOfIdentifier: '(?<![_$[:alnum:]])(?<!\.)'
   normalIdentifier: "[_a-zA-Z][_$a-zA-Z0-9]*"
   escapedIdentifier: '\\[!-~]+(?=\s)'
   systemIdentifier: '\$[[:alnum:]_$]+'
@@ -12,21 +13,24 @@ variables:
   nonZeroUnsignedNum: "[1-9][_0-9]*"
   commentOrSpace: '(/\*.*\*/)|(//.*\n)|\s'
   constantIdentifier: '[[:upper:]][_$[:digit:][:upper:]]*'
-  constantVar: ({{constantIdentifier}})(?![_$[:alnum:]])
+  constantVar: '({{constantIdentifier}})(?![_$[:alnum:]])'
+  netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
+  endOfStatement: '(?:;|end|join|endcase)'
 
+# TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
   - include: "#module-declaration"
   - include: "#keywords"
-  - include: "#strings"
+  # - include: "#strings"
   - include: "#comments"
-  - include: "#constants"
+  # - include: "#constants"
 
 repository:
   keywords:
     comment: "Used when keyword is typed, but the statement is incomplete"
     patterns:
       - name: keyword.control.verilog
-        match: "\\b(if|else|while|for|forever|repeat|wait|disable|case|default|endcase)\\b"
+        match: '\b(if|else|while|for|forever|repeat|wait|disable|case|casex|casez|default|endcase)\b'
       - name: storage.type.module.verilog
         match: '\b(module|macromodule|endmodule)\b'
       - name: storage.type.function.verilog
@@ -37,12 +41,12 @@ repository:
         match: '\b(always|initial)\b'
       - name: keyword.other.event.verilog
         match: '\b(posedge|negedge|or)\b'
-      - include: '#net-types'
-      - include: "#parameter-types"
-      - name: support.type.reg.verilog
+      - name: support.type.verilog
+        match: '\b(event)\b'
+      - name: support.type.verilog
         match: '\b(reg|trireg)\b'
       - name: keyword.other.block.verilog
-        match: '\b(begin|end)\b'
+        match: '\b(begin|end|fork|join)\b'
       - name: keyword.other.assign.verilog
         match: '\b(assign)\b'
       - name: keyword.other.port.verilog
@@ -50,10 +54,13 @@ repository:
       - name: keyword.other.verilog
         match: '\b(parameter|localparam)\b'
       - name: keyword.other.verilog
-        match: '\b(signed|automatic)\b'
+        match: '\b(signed|automatic|vectored|scalared)\b'
+      - include: '#system-tasks-and-functions'
+      - include: '#net-types'
+      - include: "#parameter-types"
   net-types:
     name: support.type.verilog
-    match: '\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor)\b'
+    match: '\b({{netTypes}})\b'
   parameter-types:
     patterns:
       - include: "#output-variable-types"
@@ -67,17 +74,18 @@ repository:
 # A.1.2
   module-declaration:
     name: meta.module.verilog
-    begin: '\b(module|macromodule)\b'
+    begin: '\b(module|macromodule)'
     beginCaptures:
       "1": { name: storage.type.module.verilog }
-    end: '(;|(\bendmodule\b))'
+    end: '\b(endmodule)\b'
     endCaptures:
-      "1": { name: punctuation.section.module.begin.verilog }
-      "2": { name: storage.type.module.verilog }
+      "1": { name: storage.type.module.verilog }
     patterns:
+      - include: '#comments'
       - include: "#module-declaration-header"
+      - include: "#module-item"
   module-declaration-header:
-    begin: '(?<=module|macromodule)\b'
+    begin: '(?<=module|macromodule)'
     end: ";"
     endCaptures:
       '0': { name: punctuation.section.module.begin.verilog }
@@ -88,7 +96,7 @@ repository:
       - include: "#module-parameter"
       - include: '#list-of-ports'
 # A.1.3
-  list-of-ports: # TODO fix port identifier list
+  list-of-ports:
     begin: '\('
     beginCaptures:
       '0': { name: punctuation.definition.ports.begin.verilog }
@@ -98,7 +106,31 @@ repository:
     patterns:
       - include: '#comments'
       - include: '#port-declarations'
-      - include: '#punctuation-comma' # TODO fix nested comma
+      - include: '#punctuation-comma'
+# A.1.4
+  module-item:
+    patterns:
+      - include: '#comments'
+      - include: '#port-declaration-statement'
+      - include: '#non-port-module-item'
+  non-port-module-item:
+    patterns:
+      - include: '#module-or-generate-item'
+  module-or-generate-item:
+    patterns:
+      - include: '#local-parameter-declaration'
+      - include: '#module-or-generate-item-declaration'
+      - include: '#continuous-assignment'
+      - name: keyword.control.verilog
+        match: '\b(always|initial)\b' # TODO fix initial coloring
+      # Textmate can't easily capture `always`, `inital`, (no simply way to tell apart module instantiation and variable assignment)
+      # moving `statement` and `timing control` to this level is easier
+      - include: "#statement"
+  module-or-generate-item-declaration:
+    patterns:
+      - include: '#net-declaration'
+      - include: '#reg-declaration'
+      - include: '#var-declaration'
 # A.2.1.1
   module-parameter:
     begin: '#\('
@@ -120,12 +152,38 @@ repository:
       - include: '#identifiers'
       - include: '#punctuation-assignment'
       - include: '#expression'
+  local-parameter-declaration:
+    begin: '\b(localparam)\b'
+    beginCaptures:
+      '1': { name: keyword.other.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctution.terminator.statement.verilog }
+    patterns:
+      - name: keyword.other.verilog
+        match: '\b(signed)\b'
+      - include: '#range'
+      - include: '#parameter_types'
+      - include: '#parameter_assignment'
+      - include: '#punctuation-comma'
 # A.2.1.2
   port-declarations:
     begin: '\b(inout|output|input)\b'
     beginCaptures:
       '1': { name: keyword.other.port.verilog }
-    end: '(?=,|\)|/\*|//|\n)'
+    end: '(?=\b(inout|output|input)|\);)'
+    patterns:
+      - include: '#port-declaration-content'
+  port-declaration-statement:
+    begin: '\b(inout|output|input)\b'
+    beginCaptures:
+      '1': { name: keyword.other.port.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#port-declaration-content'
+  port-declaration-content:
     patterns:
       - name: support.type.reg.verilog
         match: '\breg\b'
@@ -133,10 +191,49 @@ repository:
       - name: keyword.other.verilog
         match: '\bsigned\b'
       - include: '#range'
-      - include: '#list-of-port-identifiers'
+      - include: '#list-of-identifiers'
       - include: '#list-of-variable-port-identifiers'
+# A.2.1.3
+  net-declaration:
+    begin: '\b({{netTypes}}|trireg)\b'
+    beginCaptures:
+      '1': { name: support.type.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      # TODO charge strength, drive strength
+      - name: keyword.other.verilog
+        match: '\b(vectored|scalared)\b'
+      - name: keyword.other.verilog
+        match: '\b(signed)\b'
+      - include: '#range'
+      # TODO delay3
+      - include: '#list-of-identifiers'
+      # TODO list-of-assignments
+  reg-declaration:
+    begin: '\b(reg)\b'
+    beginCaptures:
+      '1': { name: support.type.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - name: keyword.other.verilog
+        match: '\b(signed)\b'
+      - include: '#range'
+      - include: '#list-of-identifiers'
+  var-declaration:
+    begin: '\b(event|real|realtime|integer|time)\b'
+    beginCaptures:
+      '1': { name: support.type.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#list-of-identifiers'
 # A.2.3
-  list-of-port-identifiers:
+  list-of-identifiers:
     patterns:
       - include: '#identifiers'
       - include: "#punctuation-comma"
@@ -146,11 +243,188 @@ repository:
       - include: '#punctuation-assignment'
       - include: '#expression'
       - include: "#punctuation-comma"
-
 # A.2.5
   range:
     patterns:
       - include: "#item-access"
+# A.6.1
+  continuous-assignment:
+    name: meta.continuous-assignment.verilog
+    begin: '\b(assign)\b'
+    beginCaptures:
+      '1': { name: keyword.other.assign.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns: # TODO
+      - include: '#list-of-net-assignments'
+  list-of-net-assignments:
+    patterns:
+      - include: '#comments'
+      - include: '#net-assignment'
+      - include: '#punctuation-comma'
+  net-assignment:
+    patterns:
+      - include: '#comments'
+      - include: '#punctuation-assignment'
+      - include: '#expression'
+# A.6.2
+  blocking-assignment:
+    patterns:
+      - include: '#comments'
+      - begin: '='
+        beginCaptures: { name: keyword.other.assign.verilog }
+        end: ';'
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
+        patterns:
+          # capture expressions in-between = and ; to avoid ternary operators being parsed as block labels
+          - include: '#expression'
+      - include: '#expression'
+  nonblocking-assignment:
+    patterns:
+      - include: '#comments'
+      - begin: '<='
+        beginCaptures: { name: keyword.operator.nonblocking-assignment.verilog }
+        end: ';'
+        endCaptures: { name: punctuation.terminator.statement.verilog }
+        patterns:
+          # capture expressions in-between <= and ; to avoid ternary operators being parsed as block labels
+          - include: '#expression'
+      - include: '#expression'
+# A.6.3
+  parallel-block:
+    name: meta.parallel-block.verilog
+    begin: '\b(fork)\b'
+    beginCaptures:
+      '1': { name: keyword.other.block.verilog }
+    end: '\b(join)\b'
+    endCaptures:
+      '1': { name: keyword.other.block.verilog }
+    patterns:
+      - include: '#block-label'
+      - include: '#statement'
+  sequential-block:
+    name: meta.sequential-block.verilog
+    begin: '\b(begin)\b'
+    beginCaptures:
+      '1': { name: keyword.other.block.verilog }
+    end: '\b(end)\b'
+    endCaptures:
+      '1': { name: keyword.other.block.verilog }
+    patterns:
+      - include: '#block-label'
+      - include: '#statement'
+  block-label:
+    begin: ':(?!=({{commentOrSpace}})*[^_$[:alnum:]`\\])'
+    beginCaptures:
+      '0': { name: entity.name.label }
+    end: '({{variableIdentifier}})'
+    endCaptures:
+      '0': { name: entity.name.label }
+    patterns:
+      - include: '#comments'
+# A.6.4
+  statement: # TODO
+    patterns:
+      - include: '#comments'
+      - include: '#parallel-block'
+      - include: '#sequential-block'
+      - include: '#conditional-statement'
+      - include: '#case-statement'
+      - include: '#blocking-assignment'
+      - include: '#nonblocking-assignment'
+      - include: '#procedural-timing-control'
+  statement-or-null:
+    patterns:
+      - include: '#statement'
+      # TODO attribute ;
+# A.6.5
+  delay-control:
+    name: entity.delay-control.verilog
+    patterns:
+      - begin: '#'
+        beginCaptures:
+          '0': { name: keyword.operator.delay.verilog }
+        end: '\)'
+        endCaptures:
+          '0': { name: punctuation.definition.delay-expression.end.verilog }
+        patterns:
+          - include: '#comments'
+          - name: punctuation.definition.delay-expression.begin.verilog
+            match: '\('
+          - include: '#expression'
+      - name: keyword.operator.delay.verilog
+        match: '#'
+      - name: constant.numeric.unsigned.verilog
+        match: '{{unsignedNum}}'
+      - include: '#number-real'
+      - include: '#identifier'
+  event-control:
+    name: entity.event-control.verilog
+    patterns:
+      - begin: '(@)'
+        beginCaptures:
+          '1': { name: keyword.operator.event.verilog }
+        end: '(\))'
+        endCaptures:
+          '1': { name: punctuation.definition.event.end.verilog }
+        patterns:
+          - name: punctuation.definition.event.begin.verilog
+            match: '\('
+          - name: keyword.other.event.verilog
+            match: '\*'
+          - include: '#comments'
+          - include: '#event-expression'
+      - begin: '(@)'
+        beginCaptures:
+          '1': { name: keyword.operator.event.verilog }
+        end: '(\*)'
+        endCaptures:
+          '1': { name: keyword.other.event.verilog }
+        patterns:
+          - include: '#comments'
+      - name: keyword.operator.event.verilog
+        match: '@'
+      - include: '#hierarchical-identifier'
+  event-expression:
+    patterns:
+      - name: keyword.other.event.verilog
+        match: '\b(posedge|negedge|or)\b'
+      - include: '#expression'
+  procedural-timing-control:
+    patterns:
+      - include: '#delay-control'
+      - include: '#event-control'
+# A.6.6
+  conditional-statement:
+    patterns:
+      - name: keyword.control.verilog
+        match: '\b(if|else)\b'
+      - include: '#round-braces'
+# A.6.7
+  case-statement:
+    begin: '\b(case|casez|casex)\b'
+    beginCaptures:
+      '1': { name: keyword.control.verilog }
+    end: '\b(endcase)\b'
+    endCaptures:
+      '1': { name: keyword.control.verilog }
+    patterns:
+      - begin: '\('
+        beginCaptures:
+          '0': { name: punctuation.definition.case-expression.begin.verilog }
+        end: '\)'
+        endCaptures:
+          '0': { name: punctuation.definition.case-expression.end.verilog }
+        patterns:
+          - include: '#expression'
+      - name: keyword.control.verilog
+        match: '\bdefault\b'
+      - name: punctuaton.definition.section.case.verilog
+        match: ':'
+      - include: '#statement-or-null'
+      - include: '#expression-list'
 # A.8.1
   concatenation:
     name: meta.concatenation.verilog
@@ -165,7 +439,7 @@ repository:
       - include: "#punctuation-comma"
 
 # A.8.2 # TODO hierarchical_identifier
-  function-call: # TODO attribute
+  function-call: # TODO attribute # TODO multiline
     name: meta.function-call.verilog
     begin: |-
       (?x)
@@ -174,15 +448,18 @@ repository:
     endCaptures:
       '1': { name: punctuation.definition.arguments.end.verilog }
     patterns:
+      - include: '#comments'
       - include: "#function-name"
       - include: "#function-arguments"
   function-name:
     patterns:
       - include: "#system-tasks-and-functions"
-      - name: entity.name.function.call.system.Verilog
+      - name: entity.name.function.call.system.verilog
         match: '{{systemIdentifier}}'
       - name: entity.name.function.call.verilog
         match: '{{variableIdentifier}}'
+      - name: entity.name.function.preprocessor.verilog
+        match: '`({{variableIdentifier}})'
   system-tasks-and-functions:
     name: support.function.builtin.verilog
     match: |-
@@ -203,7 +480,9 @@ repository:
           \$test\$plusargs|\$value\$plusargs|                                                                               # Command line input
           \$clog2|\$asin|\$ln|\$acos|\$log10|\$atan|\$exp|\$atan2|\$sqrt|\$hypot|\$pow|\$sinh|\$floor|                      # Math functions
           \$cosh|\$ceil|\$tanh|\$sin|\$asinh|\$cos|\$acosh|\$tna|\$atanh|
-          \$dumpfile|\$dumpvars|\$dumpoff|\$dumpon|\$dumpall|\$dumplimit|\$dumpflush                                        # VCD related
+          \$dumpfile|\$dumpvars|\$dumpoff|\$dumpon|\$dumpall|\$dumplimit|\$dumpflush|                                       # VCD related
+          \$countdrivers|\$getpattern|\$incsave|\$input|\$key|\$list|\$log|\$nokey|\$nolog|\$reset|\$reset_count|           # Annex C
+          \$reset_value|\$restart|\$save|\$scale|\$scope|\$showscopes|\$showvars|\$sreadmemb|\$sreadmemh
         )\b
   function-arguments:
     begin: '(\()'
@@ -214,15 +493,14 @@ repository:
       - include: "#expression-list"
 # A.8.3
   expression:
-    name: entity.expression.debug.verilog
     patterns:
       - include: "#expression-without-identifiers"
-      - include: "#identifiers"
+      - include: "#hierarchical-identifier"
   expression-without-identifiers:
     patterns:
       - include: "#comments"
+      - include: "#strings"
       - include: "#constants"
-      - include: "#string"
       - include: "#operator"
       - include: "#concatenation"
       - include: "#item-access"
@@ -237,12 +515,6 @@ repository:
       "0": { name: punctuation.parenthesis.end.verilog }
     patterns:
       - include: "#expression"
-  identifiers:
-    patterns:
-      - name: variable.other.constant.verilog
-        match: '{{constantVar}}'
-      - name: variable.other.readwrite.verilog
-        match: '{{variableIdentifier}}'
   expression-list:
     patterns:
       - include: "#expression"
@@ -386,7 +658,7 @@ repository:
         match: '\\([nt\\"]|[0-7]{1,3})'
       # Table 17-2, 17-3
       - name: constant.other.placeholder.verilog
-        match: '%[%hHdDoObBcClLvVmMsStTuUzZeEfFgG]' # TODO support sizing and precision, e.g. %05d, %.2f
+        match: '%[%hHdDoObBcClLvVmMsStTuUzZeEfFgGxX]' # TODO support sizing and precision, e.g. %05d, %.2f
 
 # A.9.2
   comments: # from https://github.com/atom/language-c/blob/master/grammars/c.cson
@@ -410,11 +682,27 @@ repository:
             beginCaptures:
               "0": { name: punctuation.definition.comment.verilog }
             end: '\n'
+# A.9.3
+  text-macro:
+    name: macro.verilog entity.name.function.preprocessor.verilog
+    match: '`({{variableIdentifier}})'
+  identifiers:
+    patterns:
+      - include: '#text-macro'
+      - name: variable.other.constant.verilog
+        match: '{{constantVar}}'
+      - name: variable.other.readwrite.verilog
+        match: '{{variableIdentifier}}'
+  hierarchical-identifier:
+    patterns:
+      - include: '#identifiers'
+      - include: '#item-access'
+      - name: punctuation.accessor.verilog
+        match: '\.'
   punctuation-comma:
     name: punctuation.separator.comma.verilog
     match: ','
   punctuation-assignment:
     name: keyword.operator.assignment.verilog
     match: '='
-
 scopeName: source.verilog
