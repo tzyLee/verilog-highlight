@@ -111,7 +111,11 @@ repository:
       - include: '#comments'
       - include: '#port-declarations'
       - include: '#punctuation-comma'
-      - include: '#identifier'
+      - include: '#identifiers'
+      - begin: '\('
+        end: '\)'
+        patterns:
+          - include: '#port-expression'
       - name: punctuation.accessor.port.verilog
         match: '\.'
       - include: '#port-expression'
@@ -121,7 +125,7 @@ repository:
       - include: '#port-reference'
   port-reference:
     patterns:
-      - include: '#identifier'
+      - include: '#identifiers'
       - include: '#item-access'
 # A.1.4
   module-item:
@@ -419,6 +423,11 @@ repository:
       - include: '#disable-statement'
       - include: '#case-statement'
       - include: '#task-enable' # need to be before assignments
+      # highlight module type when two identifiers are separated by space and on the same line
+      # the cost of distinguishing the form of module instantiation and assignment is too high
+      # currently module instantiation is variable + function call or variable + variable + round-brace
+      - name: entity.name.type.module.verilog
+        match: '({{variableIdentifier}})(?<![#@])(?=({{commentOrSpace}})+({{variableIdentifier}}))'
       - include: '#blocking-assignment'
       - include: '#nonblocking-assignment'
       - include: '#procedural-timing-control'
@@ -777,8 +786,18 @@ repository:
         match: '\\([nt\\"]|[0-7]{1,3})'
       # Table 17-2, 17-3
       - name: constant.other.placeholder.verilog
-        match: '%[%hHdDoObBcClLvVmMsStTuUzZeEfFgGxX]' # TODO support sizing and precision, e.g. %05d, %.2f
-
+        match: '%[%hHdDoObBcClLvVmMsStTuUzZeEfFgGxX]'
+      - name: constant.other.placeholder.verilog
+        match: '%[+-0]*\d*(\.\d*)?[%hHdDoObBcClLvVmMsStTuUzZeEfFgGxX]'
+# A.9.1
+  attribute: # implement attribute as comment
+    name: comment.attribute.verilog
+    begin: '\(\*(?!\))'
+    beginCaptures:
+      '0': { name: punctuation.definition.attribute.begin.verilog }
+    end: '\*\)'
+    endCaptures:
+      '0': { name: punctuation.definition.attribute.end.verilog }
 # A.9.2
   comments: # from https://github.com/atom/language-c/blob/master/grammars/c.cson
     patterns:
@@ -801,6 +820,7 @@ repository:
             beginCaptures:
               "0": { name: punctuation.definition.comment.verilog }
             end: '\n'
+      - include: '#attribute'
 # A.9.3
   text-macro:
     name: macro.verilog entity.name.function.preprocessor.verilog

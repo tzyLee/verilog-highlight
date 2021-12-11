@@ -292,7 +292,20 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#identifier</string>
+            <string>#identifiers</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\(</string>
+            <key>end</key>
+            <string>\)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#port-expression</string>
+              </dict>
+            </array>
           </dict>
           <dict>
             <key>name</key>
@@ -326,7 +339,7 @@
         <array>
           <dict>
             <key>include</key>
-            <string>#identifier</string>
+            <string>#identifiers</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1281,6 +1294,12 @@
             <string>#task-enable</string>
           </dict>
           <dict>
+            <key>name</key>
+            <string>entity.name.type.module.verilog</string>
+            <key>match</key>
+            <string>([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s))(?&lt;![#@])(?=((/\*.*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)))</string>
+          </dict>
+          <dict>
             <key>include</key>
             <string>#blocking-assignment</string>
           </dict>
@@ -2205,7 +2224,38 @@
             <key>match</key>
             <string>%[%hHdDoObBcClLvVmMsStTuUzZeEfFgGxX]</string>
           </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.other.placeholder.verilog</string>
+            <key>match</key>
+            <string>%[+-0]*\d*(\.\d*)?[%hHdDoObBcClLvVmMsStTuUzZeEfFgGxX]</string>
+          </dict>
         </array>
+      </dict>
+      <key>attribute</key>
+      <dict>
+        <key>name</key>
+        <string>comment.attribute.verilog</string>
+        <key>begin</key>
+        <string>\(\*(?!\))</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.attribute.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\*\)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.attribute.end.verilog</string>
+          </dict>
+        </dict>
       </dict>
       <key>comments</key>
       <dict>
@@ -2273,6 +2323,10 @@
                 <string>\n</string>
               </dict>
             </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#attribute</string>
           </dict>
         </array>
       </dict>
