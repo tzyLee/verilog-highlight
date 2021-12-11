@@ -19,6 +19,7 @@ variables:
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
   - include: "#module-declaration"
+  - include: '#compiler-directive'
   - include: "#keywords"
   - include: "#strings"
   - include: "#comments"
@@ -110,6 +111,18 @@ repository:
       - include: '#comments'
       - include: '#port-declarations'
       - include: '#punctuation-comma'
+      - include: '#identifier'
+      - name: punctuation.accessor.port.verilog
+        match: '\.'
+      - include: '#port-expression'
+  port-expression:
+    patterns:
+      - include: '#punctuation-comma'
+      - include: '#port-reference'
+  port-reference:
+    patterns:
+      - include: '#identifier'
+      - include: '#item-access'
 # A.1.4
   module-item:
     patterns:
@@ -121,11 +134,12 @@ repository:
       - include: '#module-or-generate-item'
   module-or-generate-item:
     patterns:
+      - include: '#compiler-directive'
       - include: '#local-parameter-declaration'
       - include: '#module-or-generate-item-declaration'
       - include: '#continuous-assignment'
       - name: keyword.control.verilog
-        match: '\b(always|initial)\b' # TODO fix initial coloring (break by compiler directives)
+        match: '\b(always|initial)\b'
       # Textmate can't easily capture `always`, `inital`, (no simply way to tell apart module instantiation and variable assignment)
       # moving `statement` and `timing control` to this level is easier
       - include: "#statement"
@@ -302,7 +316,7 @@ repository:
       - include: '#comments'
       - name: keyword.other.verilog
         match: '\b(automatic)\b'
-      - name: entity.name.task.verilog
+      - name: entity.name.function.task.verilog
         match: '{{variableIdentifier}}'
       - include: '#list-of-ports'
 # A.2.8
@@ -321,7 +335,7 @@ repository:
     end: ';'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
-    patterns: # TODO
+    patterns: # TODO drive_strength, delay3
       - include: '#list-of-net-assignments'
   list-of-net-assignments:
     patterns:
@@ -396,11 +410,13 @@ repository:
   statement: # TODO
     patterns:
       - include: '#comments'
+      - include: '#compiler-directive'
       - include: '#parallel-block'
       - include: '#sequential-block'
       - include: '#conditional-statement'
       - include: '#loop-statement'
       - include: '#wait-statement'
+      - include: '#disable-statement'
       - include: '#case-statement'
       - include: '#task-enable' # need to be before assignments
       - include: '#blocking-assignment'
@@ -419,9 +435,8 @@ repository:
       # TODO attribute ;
 # A.6.5
   delay-control:
-    name: entity.delay-control.verilog
     patterns:
-      - begin: '#'
+      - begin: '#(?=({{commentOrSpace}})*[\(\n])' # Make sure there's nothing between # and (
         beginCaptures:
           '0': { name: keyword.operator.delay.verilog }
         end: '\)'
@@ -478,6 +493,10 @@ repository:
     patterns:
       - name: keyword.control.verilog
         match: '\b(wait)\b'
+  disable-statement:
+    patterns:
+      - name: keyword.control.verilog
+        match: '\b(disable)\b'
 # A.6.6
   conditional-statement:
     patterns:
@@ -505,7 +524,7 @@ repository:
       - name: punctuaton.definition.section.case.verilog
         match: ':'
       - include: '#statement-or-null'
-      - include: '#expression-list' # TODO fix case items
+      - include: '#expression-list'
 # A.6.8
   loop-statement:
     patterns:
@@ -807,4 +826,33 @@ repository:
   punctuation-assignment:
     name: keyword.operator.assignment.verilog
     match: '='
+# 19 / Annex D
+  compiler-directive:
+    name: meta.directive.verilog
+    begin: |-
+      (?x)
+        `(begin_keywords|celldefine|default_nettype|define|else|elsif|end_keywords|
+          endcelldefine|endif|ifdef|ifndef|include|line|nounconnected_drive|pragma|
+          resetall|timescale|unconnected_drive|undef|default_decay_time|default_trireg_strength|
+          delay_mode_distributed|delay_mode_path|delay_mode_unit|delay_mode_zero
+          )\b
+    beginCaptures:
+      '0': { name: keyword.control.directive.verilog }
+    end: '(\n|(?=\/\/))' # line comment may consume newline
+    patterns:
+      - include: '#comments'
+      - name: keyword.other.verilog
+        match: '\b(infinite)\b' # default decay time
+      - name: support.type.verilog
+        match: '\b({{netTypes}}|trireg|none)\b' # default net-types
+      - match: '(10{0,2})\s*([munpf]?s)\b'
+        captures:
+          '1': { name: constant.numeric.dec.verilog }
+          '2': { name: storage.type.unit.verilog }
+      - include: '#constants'
+      - include: '#strings'
+      - include: '#identifiers' # avoid constant macro parsed as function name (for consistency)
+      - name: punctuation.seperator.slash.verilog
+        match: '/' # for timescale
+      - include: '#expression' # for text macro with argument
 scopeName: source.verilog

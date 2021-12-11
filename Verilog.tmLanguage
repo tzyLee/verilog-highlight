@@ -14,6 +14,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#compiler-directive</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#keywords</string>
       </dict>
       <dict>
@@ -286,6 +290,48 @@
             <key>include</key>
             <string>#punctuation-comma</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#identifier</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.accessor.port.verilog</string>
+            <key>match</key>
+            <string>\.</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#port-expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>port-expression</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#port-reference</string>
+          </dict>
+        </array>
+      </dict>
+      <key>port-reference</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#identifier</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#item-access</string>
+          </dict>
         </array>
       </dict>
       <key>module-item</key>
@@ -320,6 +366,10 @@
       <dict>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#compiler-directive</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#local-parameter-declaration</string>
@@ -898,7 +948,7 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>entity.name.task.verilog</string>
+            <string>entity.name.function.task.verilog</string>
             <key>match</key>
             <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
           </dict>
@@ -1196,6 +1246,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#compiler-directive</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#parallel-block</string>
           </dict>
           <dict>
@@ -1213,6 +1267,10 @@
           <dict>
             <key>include</key>
             <string>#wait-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#disable-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1271,13 +1329,11 @@
       </dict>
       <key>delay-control</key>
       <dict>
-        <key>name</key>
-        <string>entity.delay-control.verilog</string>
         <key>patterns</key>
         <array>
           <dict>
             <key>begin</key>
-            <string>#</string>
+            <string>#(?=((/\*.*\*/)|(//.*\n)|\s)*[\(\n])</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -1467,6 +1523,18 @@
             <string>keyword.control.verilog</string>
             <key>match</key>
             <string>\b(wait)\b</string>
+          </dict>
+        </array>
+      </dict>
+      <key>disable-statement</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.verilog</string>
+            <key>match</key>
+            <string>\b(disable)\b</string>
           </dict>
         </array>
       </dict>
@@ -2276,6 +2344,86 @@
         <string>keyword.operator.assignment.verilog</string>
         <key>match</key>
         <string>=</string>
+      </dict>
+      <key>compiler-directive</key>
+      <dict>
+        <key>name</key>
+        <string>meta.directive.verilog</string>
+        <key>begin</key>
+        <string>(?x)
+  `(begin_keywords|celldefine|default_nettype|define|else|elsif|end_keywords|
+    endcelldefine|endif|ifdef|ifndef|include|line|nounconnected_drive|pragma|
+    resetall|timescale|unconnected_drive|undef|default_decay_time|default_trireg_strength|
+    delay_mode_distributed|delay_mode_path|delay_mode_unit|delay_mode_zero
+    )\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.directive.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(\n|(?=\/\/))</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>\b(infinite)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>support.type.verilog</string>
+            <key>match</key>
+            <string>\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|none)\b</string>
+          </dict>
+          <dict>
+            <key>match</key>
+            <string>(10{0,2})\s*([munpf]?s)\b</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>constant.numeric.dec.verilog</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.unit.verilog</string>
+              </dict>
+            </dict>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#constants</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#strings</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#identifiers</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.seperator.slash.verilog</string>
+            <key>match</key>
+            <string>/</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
       </dict>
     </dict>
     <key>scopeName</key>
