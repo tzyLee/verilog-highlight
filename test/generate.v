@@ -175,14 +175,14 @@ case ({MEM_SIZE, MEM_WIDTH})
         input [31:0] address;
         output [63:0] data;
         begin // call read_mem in sms module
-        byte[7].p.read_mem(address, data[63:56]);
-        byte[6].p.read_mem(address, data[55:48]);
-        byte[5].p.read_mem(address, data[47:40]);
-        byte[4].p.read_mem(address, data[39:32]);
-        byte[3].p.read_mem(address, data[31:24]);
-        byte[2].p.read_mem(address, data[23:16]);
-        byte[1].p.read_mem(address, data[15: 8]);
-        byte[0].p.read_mem(address, data[ 7: 0]);
+            byte[7].p.read_mem(address, data[63:56]);
+            byte[6].p.read_mem(address, data[55:48]);
+            byte[5].p.read_mem(address, data[47:40]);
+            byte[4].p.read_mem(address, data[39:32]);
+            byte[3].p.read_mem(address, data[31:24]);
+            byte[2].p.read_mem(address, data[23:16]);
+            byte[1].p.read_mem(address, data[15: 8]);
+            byte[0].p.read_mem(address, data[ 7: 0]);
         end
         endtask
     end

@@ -105,7 +105,7 @@
             <key>name</key>
             <string>keyword.other.verilog</string>
             <key>match</key>
-            <string>\b(parameter|localparam|specparam)\b</string>
+            <string>\b(parameter|localparam|specparam|defparam)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -401,6 +401,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#parameter-override</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#module-or-generate-item-declaration</string>
           </dict>
           <dict>
@@ -442,6 +446,44 @@
           <dict>
             <key>include</key>
             <string>#task-declaration</string>
+          </dict>
+        </array>
+      </dict>
+      <key>parameter-override</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(defparam)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#assignment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
           </dict>
         </array>
       </dict>
@@ -1224,7 +1266,15 @@
             <array>
               <dict>
                 <key>include</key>
+                <string>#repeat-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
                 <string>#expression</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#delay-or-event-control</string>
               </dict>
             </array>
           </dict>
@@ -1267,7 +1317,15 @@
             <array>
               <dict>
                 <key>include</key>
+                <string>#repeat-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
                 <string>#expression</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#delay-or-event-control</string>
               </dict>
             </array>
           </dict>
@@ -1424,10 +1482,45 @@
             <string>#task-enable</string>
           </dict>
           <dict>
-            <key>name</key>
-            <string>entity.name.type.module.verilog</string>
+            <key>include</key>
+            <string>#event-trigger</string>
+          </dict>
+          <dict>
             <key>match</key>
-            <string>([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s))(?&lt;![#@])(?=((/\*.*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)))</string>
+            <string>^\s*([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*.*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*.*\*/)|(//.*\n)|\s)*(?=\(|$)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.module.verilog</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>comment.block.verilog</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>comment.line.double-slash.verilog</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.variable.module.verilog</string>
+              </dict>
+              <key>5</key>
+              <dict>
+                <key>name</key>
+                <string>comment.block.verilog</string>
+              </dict>
+              <key>6</key>
+              <dict>
+                <key>name</key>
+                <string>comment.line.double-slash.verilog</string>
+              </dict>
+            </dict>
           </dict>
           <dict>
             <key>include</key>
@@ -1633,6 +1726,54 @@
           </dict>
         </array>
       </dict>
+      <key>delay-or-event-control</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#delay-control</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#event-control</string>
+          </dict>
+        </array>
+      </dict>
+      <key>event-trigger</key>
+      <dict>
+        <key>begin</key>
+        <string>-&gt;</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#hierarchical-identifier</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#item-access</string>
+          </dict>
+        </array>
+      </dict>
       <key>event-expression</key>
       <dict>
         <key>patterns</key>
@@ -1785,6 +1926,13 @@
             <string>\b(forever|repeat|while|for)\b</string>
           </dict>
         </array>
+      </dict>
+      <key>repeat-statement</key>
+      <dict>
+        <key>name</key>
+        <string>keyword.contorl.verilog</string>
+        <key>match</key>
+        <string>\b(repeat)\b</string>
       </dict>
       <key>task-enable</key>
       <dict>

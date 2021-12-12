@@ -50,7 +50,7 @@ repository:
       - name: keyword.other.port.verilog
         match: '\b(input|output|inout)\b'
       - name: keyword.other.verilog
-        match: '\b(parameter|localparam|specparam)\b'
+        match: '\b(parameter|localparam|specparam|defparam)\b'
       - name: keyword.other.verilog
         match: '\b(signed|automatic|vectored|scalared)\b'
       - include: '#system-tasks-and-functions'
@@ -143,6 +143,7 @@ repository:
     patterns:
       - include: '#compiler-directive'
       - include: '#local-parameter-declaration'
+      - include: '#parameter-override'
       - include: '#module-or-generate-item-declaration'
       - include: '#continuous-assignment'
       - name: keyword.control.verilog
@@ -159,6 +160,17 @@ repository:
       - include: '#var-declaration'
       - include: '#function-declaration'
       - include: '#task-declaration'
+  parameter-override:
+    begin: '\b(defparam)\b'
+    beginCaptures:
+      '1': { name: keyword.other.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#comments'
+      - include: '#assignment'
+      - include: '#punctuation-comma'
 # A.2.1.1
   module-parameter:
     begin: '#\('
@@ -406,8 +418,10 @@ repository:
         endCaptures:
           '0': { name: punctuation.terminator.statement.verilog }
         patterns:
+          - include: '#repeat-statement'
           # capture expressions in-between = and ; to avoid ternary operators being parsed as block labels
           - include: '#expression'
+          - include: '#delay-or-event-control'
       - include: '#lvalue'
   nonblocking-assignment:
     patterns:
@@ -419,8 +433,10 @@ repository:
         endCaptures:
           '0': { name: punctuation.terminator.statement.verilog }
         patterns:
+          - include: '#repeat-statement'
           # capture expressions in-between <= and ; to avoid ternary operators being parsed as block labels
           - include: '#expression'
+          - include: '#delay-or-event-control'
       - include: '#lvalue'
 # A.6.3
   parallel-block:
@@ -455,7 +471,7 @@ repository:
     patterns:
       - include: '#comments'
 # A.6.4
-  statement: # TODO
+  statement:
     patterns:
       - include: '#comments'
       - include: '#compiler-directive'
@@ -467,11 +483,30 @@ repository:
       - include: '#disable-statement'
       - include: '#case-statement'
       - include: '#task-enable' # need to be before assignments
+      - include: '#event-trigger'
       # highlight module type when two identifiers are separated by space and on the same line
       # the cost of distinguishing the form of module instantiation and assignment is too high
-      # currently module instantiation is variable + function call or variable + variable + round-brace
-      - name: entity.name.type.module.verilog
-        match: '({{variableIdentifier}})(?<![#@])(?=({{commentOrSpace}})+({{variableIdentifier}}))'
+      # current implementation is from: https://github.com/mshr-h/vscode-verilog-hdl-support
+      # 1. This makes adjcent two word followed by ( or end-of-line become module instantiation
+      #    which can lead to some undesired effects, for example:
+      #      assign a
+      #      = 3;
+      #    would become instatiation
+      # 2. This does not support parameter value assignment, which can be easily mixed up with delay, for example
+      #      Adder #(bitwidth) u1(a, b, sum);
+      #    is not highlighted.
+      # it should be fine in most situations.
+      # excluding all `module-or-generate-item` keywords may be a potential fix.
+      # TODO: matching all keywords of module-or-generate-item to properly tokenize
+      #       generate-constructs, and fixing the problem above.
+      - match: '^\s*({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|$)'
+        captures:
+          '1': { name: entity.name.type.module.verilog }
+          '2': { name: comment.block.verilog }
+          '3': { name: comment.line.double-slash.verilog }
+          '4': { name: entity.name.variable.module.verilog }
+          '5': { name: comment.block.verilog }
+          '6': { name: comment.line.double-slash.verilog }
       - include: '#blocking-assignment'
       - include: '#nonblocking-assignment'
       - include: '#procedural-timing-control'
@@ -485,7 +520,7 @@ repository:
   statement-or-null:
     patterns:
       - include: '#statement'
-      # TODO attribute ;
+      # TODO ;
 # A.6.5
   delay-control:
     patterns:
@@ -533,6 +568,21 @@ repository:
       - name: keyword.operator.event.verilog
         match: '@'
       - include: '#hierarchical-identifier'
+  delay-or-event-control:
+    patterns:
+      - include: '#delay-control'
+      - include: '#event-control'
+      # repeat is separated for higher precedence
+  event-trigger:
+    begin: '->'
+    beginCaptures:
+      '0': { name: keyword.operator.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#hierarchical-identifier'
+      - include: '#item-access'
   event-expression:
     patterns:
       - name: keyword.other.verilog
@@ -583,6 +633,9 @@ repository:
     patterns:
       - name: keyword.control.verilog
         match: '\b(forever|repeat|while|for)\b'
+  repeat-statement: # used in delay-or-event-control
+    name: keyword.contorl.verilog
+    match: '\b(repeat)\b'
 # A.6.9
   task-enable:
     # Most of the cases are matched as function calls,
