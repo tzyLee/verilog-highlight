@@ -135,6 +135,7 @@ repository:
       - include: '#non-port-module-item'
   non-port-module-item:
     patterns:
+      - include: '#generate-region'
       - include: '#module-or-generate-item'
   module-or-generate-item:
     patterns:
@@ -147,6 +148,8 @@ repository:
       # Textmate can't easily capture `always`, `inital`, (no simply way to tell apart module instantiation and variable assignment)
       # moving `statement` and `timing control` to this level is easier
       - include: "#statement"
+      # loop-generate-construct is treated as loop-statement
+      # conditional-generate-construct is treated as conditional-statement
   module-or-generate-item-declaration:
     patterns:
       - include: '#net-declaration'
@@ -330,6 +333,17 @@ repository:
       - include: '#reg-declaration'
       - include: '#var-declaration'
       - include: '#local-parameter-declaration'
+# A.4.2
+  generate-region:
+    name: meta.generate.verilog
+    begin: '\b(generate)\b'
+    beginCaptures:
+      '1': { name: storage.type.generate.verilog } # use storage.type for consistency
+    end: '\b(endgenerate)\b'
+    endCaptures:
+      '1': { name: storage.type.generate.verilog }
+    patterns:
+      - include: '#module-or-generate-item'
 # A.6.1
   continuous-assignment:
     name: meta.continuous-assignment.verilog
@@ -827,6 +841,7 @@ repository:
     match: '`({{variableIdentifier}})'
   identifiers:
     patterns:
+      - include: '#keywords' # fallback
       - include: '#text-macro'
       - name: entity.name.function.call.system.verilog
         match: '{{systemIdentifier}}'

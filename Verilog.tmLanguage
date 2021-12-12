@@ -371,6 +371,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#generate-region</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#module-or-generate-item</string>
           </dict>
         </array>
@@ -990,6 +994,38 @@
           <dict>
             <key>include</key>
             <string>#local-parameter-declaration</string>
+          </dict>
+        </array>
+      </dict>
+      <key>generate-region</key>
+      <dict>
+        <key>name</key>
+        <string>meta.generate.verilog</string>
+        <key>begin</key>
+        <string>\b(generate)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.generate.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\b(endgenerate)\b</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.generate.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#module-or-generate-item</string>
           </dict>
         </array>
       </dict>
@@ -2341,6 +2377,10 @@
       <dict>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#keywords</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#text-macro</string>
