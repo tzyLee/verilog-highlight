@@ -18,7 +18,19 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#config-declaration</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#compiler-directive</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#library-declaration</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#include-statement</string>
       </dict>
       <dict>
         <key>include</key>
@@ -74,6 +86,12 @@
             <string>storage.type.task.verilog</string>
             <key>match</key>
             <string>\b(task|endtask)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>storage.type.config.verilog</string>
+            <key>match</key>
+            <string>\b(config|endconfig)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -183,6 +201,92 @@
         <string>support.type.verilog</string>
         <key>match</key>
         <string>\b(real|realtime)\b</string>
+      </dict>
+      <key>library-declaration</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(library)\s+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s))</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>variable.other.readwrite.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#file-path-spec</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>-incdir</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#identifiers</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
+          </dict>
+        </array>
+      </dict>
+      <key>include-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(include)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#file-path-spec</string>
+          </dict>
+        </array>
+      </dict>
+      <key>file-path-spec</key>
+      <dict>
+        <key>name</key>
+        <string>string.other.path.verilog</string>
+        <key>match</key>
+        <string>([\.?\*\/a-zA-Z]+)</string>
       </dict>
       <key>module-declaration</key>
       <dict>
@@ -510,6 +614,125 @@
           <dict>
             <key>include</key>
             <string>#punctuation-comma</string>
+          </dict>
+        </array>
+      </dict>
+      <key>config-declaration</key>
+      <dict>
+        <key>name</key>
+        <string>meta.config.verilog</string>
+        <key>begin</key>
+        <string>\b(config)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.config.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\b(endconfig)\b</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.config.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#config-declaration-header</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#config-body</string>
+          </dict>
+        </array>
+      </dict>
+      <key>config-declaration-header</key>
+      <dict>
+        <key>begin</key>
+        <string>(?&lt;=config)</string>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.section.config.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.config.verilog</string>
+            <key>match</key>
+            <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+          </dict>
+        </array>
+      </dict>
+      <key>config-body</key>
+      <dict>
+        <key>name</key>
+        <string>meta.config.body.verilog</string>
+        <key>begin</key>
+        <string>(?&lt;=;)</string>
+        <key>end</key>
+        <string>(?=endconfig)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\b(design|default|instance|cell)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.other.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>;</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.terminator.statement.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>keyword.other.verilog</string>
+                <key>match</key>
+                <string>\b(use|liblist)\b</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#hierarchical-identifier</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
           </dict>
         </array>
       </dict>

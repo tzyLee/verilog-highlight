@@ -1,0 +1,217 @@
+>config bot;
+#^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+#      ^ source.verilog meta.config.verilog
+#       ^^^ source.verilog meta.config.verilog entity.name.type.config.verilog
+#          ^ source.verilog meta.config.verilog punctuation.section.config.begin.verilog
+>    design lib1.bot;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.config.verilog meta.config.body.verilog
+#           ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    default liblist lib1 lib2;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#            ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                        ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                         ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                             ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    instance bot.a1 liblist lib3;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#            ^ source.verilog meta.config.verilog meta.config.body.verilog
+#             ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                 ^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                            ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>endconfig
+#^^^^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+>
+>config top;
+#^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+#      ^ source.verilog meta.config.verilog
+#       ^^^ source.verilog meta.config.verilog entity.name.type.config.verilog
+#          ^ source.verilog meta.config.verilog punctuation.section.config.begin.verilog
+>    design lib1.top;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.config.verilog meta.config.body.verilog
+#           ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    default liblist lib2 lib1;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#            ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                        ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                         ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                             ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    instance top.bot use lib1.bot:config;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#            ^ source.verilog meta.config.verilog meta.config.body.verilog
+#             ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                 ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                    ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                     ^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                        ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                         ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                             ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                              ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                 ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                                  ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog storage.type.config.verilog
+#                                        ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    instance top.bot.a1 liblist lib4;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#            ^ source.verilog meta.config.verilog meta.config.body.verilog
+#             ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                 ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                    ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                     ^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                       ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                        ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                               ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                                ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                    ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    // ERROR - cannot set liblist for top.bot.a1 from this config
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.whitespace.comment.leading.verilog
+#    ^^ source.verilog meta.config.verilog meta.config.body.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog comment.line.double-slash.verilog
+>endconfig
+#^^^^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+>
+>config cfg2;
+#^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+#      ^ source.verilog meta.config.verilog
+#       ^^^^ source.verilog meta.config.verilog entity.name.type.config.verilog
+#           ^ source.verilog meta.config.verilog punctuation.section.config.begin.verilog
+>    design rtlLib.top;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.config.verilog meta.config.body.verilog
+#           ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                  ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                     ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    default liblist gateLib aLib rtlLib;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#            ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                            ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                                 ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                       ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    cell foo use gateLib.foo;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#        ^ source.verilog meta.config.verilog meta.config.body.verilog
+#         ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#            ^ source.verilog meta.config.verilog meta.config.body.verilog
+#             ^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                 ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                        ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                         ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                            ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>endconfig
+#^^^^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+>
+>config cfg5;
+#^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+#      ^ source.verilog meta.config.verilog
+#       ^^^^ source.verilog meta.config.verilog entity.name.type.config.verilog
+#           ^ source.verilog meta.config.verilog punctuation.section.config.begin.verilog
+>    design aLib.adder;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.config.verilog meta.config.body.verilog
+#           ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                ^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                     ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    default liblist gateLib aLib;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#            ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                            ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    instance adder.f1 liblist rtlLib;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#            ^ source.verilog meta.config.verilog meta.config.body.verilog
+#             ^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                  ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                   ^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                     ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                      ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                             ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                              ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                    ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>endconfig
+#^^^^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+>
+>config cfg6;
+#^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog
+#      ^ source.verilog meta.config.verilog
+#       ^^^^ source.verilog meta.config.verilog entity.name.type.config.verilog
+#           ^ source.verilog meta.config.verilog punctuation.section.config.begin.verilog
+>    design rtlLib.top;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.config.verilog meta.config.body.verilog
+#           ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                  ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                     ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    default liblist aLib rtlLib;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#           ^ source.verilog meta.config.verilog meta.config.body.verilog
+#            ^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                        ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                         ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                               ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>    instance top.a2 use work.cfg5:config;
+#^^^^ source.verilog meta.config.verilog meta.config.body.verilog
+#    ^^^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#            ^ source.verilog meta.config.verilog meta.config.body.verilog
+#             ^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                 ^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                   ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                    ^^^ source.verilog meta.config.verilog meta.config.body.verilog keyword.other.verilog
+#                       ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                        ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                            ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.accessor.verilog
+#                             ^^^^ source.verilog meta.config.verilog meta.config.body.verilog variable.other.readwrite.verilog
+#                                 ^ source.verilog meta.config.verilog meta.config.body.verilog
+#                                  ^^^^^^ source.verilog meta.config.verilog meta.config.body.verilog storage.type.config.verilog
+#                                        ^ source.verilog meta.config.verilog meta.config.body.verilog punctuation.terminator.statement.verilog
+>endconfig
+#^^^^^^^^^ source.verilog meta.config.verilog storage.type.config.verilog

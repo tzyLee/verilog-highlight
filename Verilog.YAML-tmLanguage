@@ -22,7 +22,10 @@ variables:
 patterns:
   - include: "#module-declaration"
   - include: '#udp-declaration'
+  - include: '#config-declaration'
   - include: '#compiler-directive'
+  - include: '#library-declaration'
+  - include: '#include-statement'
   - include: "#keywords"
   - include: "#strings"
   - include: "#comments"
@@ -42,6 +45,8 @@ repository:
         match: '\b(function|endfunction)\b'
       - name: storage.type.task.verilog
         match: '\b(task|endtask)\b'
+      - name: storage.type.config.verilog
+        match: '\b(config|endconfig)\b'
       - name: keyword.control.verilog
         match: '\b(always|initial)\b'
       - name: keyword.other.verilog
@@ -56,6 +61,8 @@ repository:
         match: '\b(input|output|inout)\b'
       - name: keyword.other.verilog
         match: '\b(parameter|localparam|specparam|defparam)\b'
+      # - name: keyword.other.verilog
+      #   match: '\b(design|default|instance|cell|liblist|use)\b'
       - name: keyword.other.verilog
         match: '\b(signed|automatic|vectored|scalared)\b'
       - include: '#system-tasks-and-functions'
@@ -78,6 +85,33 @@ repository:
   real-types:
     name: support.type.verilog
     match: '\b(real|realtime)\b'
+# A.1.1
+  library-declaration:
+    begin: '\b(library)\s+({{variableIdentifier}})'
+    beginCaptures:
+      '1': { name: keyword.other.verilog }
+      '2': { name: variable.other.readwrite.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#file-path-spec'
+      - name: keyword.other.verilog
+        match: '-incdir'
+      - include: '#identifiers'
+      - include: '#punctuation-comma'
+  include-statement:
+    begin: '\b(include)\b'
+    beginCaptures:
+      '1': { name: keyword.other.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#file-path-spec'
+  file-path-spec:
+    name: string.other.path.verilog
+    match: '([\.?\*\/a-zA-Z]+)'
 # A.1.2
   module-declaration:
     name: meta.module.verilog
@@ -181,6 +215,44 @@ repository:
       - include: '#comments'
       - include: '#assignment'
       - include: '#punctuation-comma'
+# A.1.5
+  config-declaration:
+    name: meta.config.verilog
+    begin: '\b(config)'
+    beginCaptures:
+      "1": { name: storage.type.config.verilog }
+    end: '\b(endconfig)\b'
+    endCaptures:
+      "1": { name: storage.type.config.verilog }
+    patterns:
+      - include: "#config-declaration-header"
+      - include: '#comments'
+      - include: '#config-body'
+  config-declaration-header:
+    begin: '(?<=config)'
+    end: ";"
+    endCaptures:
+      '0': { name: punctuation.section.config.begin.verilog }
+    patterns:
+      - include: '#comments'
+      - name: entity.name.type.config.verilog
+        match: '{{variableIdentifier}}'
+  config-body:
+    name: meta.config.body.verilog
+    begin: '(?<=;)'
+    end: '(?=endconfig)'
+    patterns:
+      - begin: '\b(design|default|instance|cell)\b'
+        beginCaptures:
+          '1': { name: keyword.other.verilog }
+        end: ';'
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
+        patterns:
+          - name: keyword.other.verilog
+            match: '\b(use|liblist)\b'
+          - include: '#hierarchical-identifier'
+      - include: '#comments'
 # A.2.1.1
   module-parameter:
     begin: '#\('

@@ -1,0 +1,26 @@
+>library rtlLib *.v; // matches all files in the current directory with a .v suffix
+#^^^^^^^ source.verilog keyword.other.verilog
+#       ^ source.verilog
+#        ^^^^^^ source.verilog variable.other.readwrite.verilog
+#              ^ source.verilog
+#               ^^^ source.verilog string.other.path.verilog
+#                  ^ source.verilog punctuation.terminator.statement.verilog
+#                   ^ source.verilog
+#                    ^^ source.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog comment.line.double-slash.verilog
+>library gateLib ./*.vg; // matches all files in the current directory with a .vg suffix
+#^^^^^^^ source.verilog keyword.other.verilog
+#       ^ source.verilog
+#        ^^^^^^^ source.verilog variable.other.readwrite.verilog
+#               ^ source.verilog
+#                ^^^^^^ source.verilog string.other.path.verilog
+#                      ^ source.verilog punctuation.terminator.statement.verilog
+#                       ^ source.verilog
+#                        ^^ source.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog comment.line.double-slash.verilog
+>
+>include ./.../?.v;
+#^^^^^^^ source.verilog keyword.other.verilog
+#       ^ source.verilog
+#        ^^^^^^^^^ source.verilog string.other.path.verilog
+#                 ^ source.verilog punctuation.terminator.statement.verilog
