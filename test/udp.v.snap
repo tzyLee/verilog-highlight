@@ -1,0 +1,1163 @@
+>primitive multiplexer (mux, control, dataA, dataB);
+#^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^^^^^^^^^ source.verilog meta.udp.verilog entity.name.type.udp.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.definition.ports.begin.verilog
+#                       ^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                           ^ source.verilog meta.udp.verilog
+#                            ^^^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                    ^ source.verilog meta.udp.verilog
+#                                     ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                          ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                           ^ source.verilog meta.udp.verilog
+#                                            ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                                 ^ source.verilog meta.udp.verilog punctuation.definition.ports.end.verilog
+#                                                  ^ source.verilog meta.udp.verilog punctuation.section.udp.begin.verilog
+>output mux;
+#^^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.udp.verilog
+#       ^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>input control, dataA, dataB;
+#^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^^^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#             ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#              ^ source.verilog meta.udp.verilog
+#               ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                           ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>table
+#^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>// control dataA dataB mux
+#^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#  ^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>       0     1    0   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       0     1    1   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       0     1    x   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       0     0    0   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       0     0    1   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       0     0    x   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       1     0    1   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       1     1    1   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       1     x    1   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       1     0    0   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       1     1    0   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       1     x    0   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       x     0    0   : 0 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>       x     1    1   : 1 ;
+#^^^^^^^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#        ^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>endtable
+#^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>endprimitive
+#^^^^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>
+>
+>primitive multiplexer (mux, control, dataA, dataB);
+#^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^^^^^^^^^ source.verilog meta.udp.verilog entity.name.type.udp.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.definition.ports.begin.verilog
+#                       ^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                           ^ source.verilog meta.udp.verilog
+#                            ^^^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                    ^ source.verilog meta.udp.verilog
+#                                     ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                          ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                           ^ source.verilog meta.udp.verilog
+#                                            ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                                 ^ source.verilog meta.udp.verilog punctuation.definition.ports.end.verilog
+#                                                  ^ source.verilog meta.udp.verilog punctuation.section.udp.begin.verilog
+>output mux;
+#^^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.udp.verilog
+#       ^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>input control, dataA, dataB;
+#^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^^^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#             ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#              ^ source.verilog meta.udp.verilog
+#               ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                           ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>table
+#^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>// control dataA dataB mux
+#^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#  ^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>      0      1     ?  : 1 ; // ? = 0 1 x
+#^^^^^^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                    ^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#                           ^ source.verilog meta.udp.verilog
+#                            ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                              ^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>      0      0     ?  : 0 ;
+#^^^^^^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                    ^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>      1      ?     1  : 1 ;
+#^^^^^^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                    ^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>      1      ?     0  : 0 ;
+#^^^^^^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                    ^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>      x      0     0  : 0 ;
+#^^^^^^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                    ^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>      x      1     1  : 1 ;
+#^^^^^^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^^^^^^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^^^^^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                    ^^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>endtable
+#^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>endprimitive
+#^^^^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>
+>primitive d_edge_ff (q, clock, data);
+#^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^^^^^^^ source.verilog meta.udp.verilog entity.name.type.udp.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.definition.ports.begin.verilog
+#                     ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                             ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                              ^ source.verilog meta.udp.verilog
+#                               ^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.udp.verilog punctuation.definition.ports.end.verilog
+#                                    ^ source.verilog meta.udp.verilog punctuation.section.udp.begin.verilog
+>output q; reg q;
+#^^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^ source.verilog meta.udp.verilog support.type.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>input clock, data;
+#^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#           ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>table
+#^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>// clock data q q+
+#^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#  ^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>// obtain output on rising edge of clock
+#^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>    (01)  0 : ? : 0 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog punctuation.parenthesis.begin.verilog
+#     ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog punctuation.parenthesis.end.verilog
+#        ^^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    (01)  1 : ? : 1 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog punctuation.parenthesis.begin.verilog
+#     ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog punctuation.parenthesis.end.verilog
+#        ^^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    (0?)  1 : 1 : 1 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog punctuation.parenthesis.begin.verilog
+#     ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog punctuation.parenthesis.end.verilog
+#        ^^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    (0?)  0 : 0 : 0 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog punctuation.parenthesis.begin.verilog
+#     ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog punctuation.parenthesis.end.verilog
+#        ^^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    // ignore negative edge of clock
+#^^^^ source.verilog meta.udp.verilog punctuation.whitespace.comment.leading.verilog
+#    ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>    (?0)  ? : ? : - ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog punctuation.parenthesis.begin.verilog
+#     ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog punctuation.parenthesis.end.verilog
+#        ^^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    // ignore data changes on steady clock
+#^^^^ source.verilog meta.udp.verilog punctuation.whitespace.comment.leading.verilog
+#    ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>    ?   (??): ? : - ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.parenthesis.begin.verilog
+#         ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog punctuation.parenthesis.end.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>endtable
+#^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>endprimitive
+#^^^^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>
+>primitive srff (q, s, r);
+#^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^^ source.verilog meta.udp.verilog entity.name.type.udp.verilog
+#              ^ source.verilog meta.udp.verilog
+#               ^ source.verilog meta.udp.verilog punctuation.definition.ports.begin.verilog
+#                ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                  ^ source.verilog meta.udp.verilog
+#                   ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                       ^ source.verilog meta.udp.verilog punctuation.definition.ports.end.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.section.udp.begin.verilog
+>output q; reg q;
+#^^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^ source.verilog meta.udp.verilog support.type.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>input s, r;
+#^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#       ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#        ^ source.verilog meta.udp.verilog
+#         ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#          ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>initial q = 1'b1;
+#^^^^^^^ source.verilog meta.udp.verilog keyword.control.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog keyword.operator.assignment.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^^^ source.verilog meta.udp.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#               ^ source.verilog meta.udp.verilog constant.numeric.bin.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>table
+#^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>// s r q q+
+#^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#  ^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>    1 0 : ? : 1 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    f 0 : 1 : - ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    0 r : ? : 0 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    0 f : 0 : - ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    1 1 : ? : 0 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>endtable
+#^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>endprimitive
+#^^^^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>
+>primitive dff1 (q, clk, d);
+#^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^^ source.verilog meta.udp.verilog entity.name.type.udp.verilog
+#              ^ source.verilog meta.udp.verilog
+#               ^ source.verilog meta.udp.verilog punctuation.definition.ports.begin.verilog
+#                ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                  ^ source.verilog meta.udp.verilog
+#                   ^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                      ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                         ^ source.verilog meta.udp.verilog punctuation.definition.ports.end.verilog
+#                          ^ source.verilog meta.udp.verilog punctuation.section.udp.begin.verilog
+>input clk, d;
+#^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#          ^ source.verilog meta.udp.verilog
+#           ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>output q; reg q;
+#^^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^ source.verilog meta.udp.verilog support.type.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>initial q = 1'b1;
+#^^^^^^^ source.verilog meta.udp.verilog keyword.control.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog keyword.operator.assignment.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^^^ source.verilog meta.udp.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#               ^ source.verilog meta.udp.verilog constant.numeric.bin.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>table
+#^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>// clk d q q+
+#^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#  ^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>    r 0 : ? : 0 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    r 1 : ? : 1 ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    f ? : ? : - ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>    ? * : ? : - ;
+#^^^^ source.verilog meta.udp.verilog
+#    ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#       ^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog
+#            ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>endtable
+#^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>endprimitive
+#^^^^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>
+>module dff (q, qb, clk, d);
+#^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+#      ^ source.verilog meta.module.verilog
+#       ^^^ source.verilog meta.module.verilog entity.name.type.module.verilog
+#          ^ source.verilog meta.module.verilog
+#           ^ source.verilog meta.module.verilog punctuation.definition.ports.begin.verilog
+#            ^ source.verilog meta.module.verilog variable.other.readwrite.verilog
+#             ^ source.verilog meta.module.verilog punctuation.separator.comma.verilog
+#              ^ source.verilog meta.module.verilog
+#               ^^ source.verilog meta.module.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.module.verilog punctuation.separator.comma.verilog
+#                  ^ source.verilog meta.module.verilog
+#                   ^^^ source.verilog meta.module.verilog variable.other.readwrite.verilog
+#                      ^ source.verilog meta.module.verilog punctuation.separator.comma.verilog
+#                       ^ source.verilog meta.module.verilog
+#                        ^ source.verilog meta.module.verilog variable.other.readwrite.verilog
+#                         ^ source.verilog meta.module.verilog punctuation.definition.ports.end.verilog
+#                          ^ source.verilog meta.module.verilog punctuation.section.module.begin.verilog
+>
+>input clk, d;
+#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog
+#      ^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>output q, qb;
+#^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog
+#          ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>
+>dff1 g1 (qi, clk, d);
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.type.module.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.variable.module.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog
+#         ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#           ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#             ^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>buf #3 g2 (q, qi);
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.delay.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog
+#       ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#             ^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>not #5 g3 (qb, qi);
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.delay.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog
+#       ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
+#           ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#              ^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>
+>endmodule
+#^^^^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+>
+>
+>primitive jk_edge_ff (q, clock, j, k, preset, clear);
+#^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^^^^^^^^ source.verilog meta.udp.verilog entity.name.type.udp.verilog
+#                    ^ source.verilog meta.udp.verilog
+#                     ^ source.verilog meta.udp.verilog punctuation.definition.ports.begin.verilog
+#                      ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                       ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                        ^ source.verilog meta.udp.verilog
+#                         ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                              ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                               ^ source.verilog meta.udp.verilog
+#                                ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                 ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                  ^ source.verilog meta.udp.verilog
+#                                   ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                    ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                     ^ source.verilog meta.udp.verilog
+#                                      ^^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                            ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                                             ^ source.verilog meta.udp.verilog
+#                                              ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                                   ^ source.verilog meta.udp.verilog punctuation.definition.ports.end.verilog
+#                                                    ^ source.verilog meta.udp.verilog punctuation.section.udp.begin.verilog
+>output q; reg q;
+#^^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#      ^ source.verilog meta.udp.verilog
+#       ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^^^ source.verilog meta.udp.verilog support.type.verilog
+#             ^ source.verilog meta.udp.verilog
+#              ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>input clock, j, k, preset, clear;
+#^^^^^ source.verilog meta.udp.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.udp.verilog
+#      ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#           ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                  ^ source.verilog meta.udp.verilog
+#                   ^^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                         ^ source.verilog meta.udp.verilog punctuation.separator.comma.verilog
+#                          ^ source.verilog meta.udp.verilog
+#                           ^^^^^ source.verilog meta.udp.verilog variable.other.readwrite.verilog
+#                                ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>
+>table
+#^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>    // clock jk pc state output/next state
+#^^^^ source.verilog meta.udp.verilog punctuation.whitespace.comment.leading.verilog
+#    ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>        ? ?? 01 : ? : 1 ; // preset logic
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                            ^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>        ? ?? *1 : 1 : 1 ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        ? ?? 10 : ? : 0 ; // clear logic
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                            ^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>        ? ?? 1* : 0 : 0 ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        r 00 00 : 0 : 1 ; // normal clocking cases
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                            ^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>        r 00 11 : ? : - ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        r 01 11 : ? : 0 ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        r 10 11 : ? : 1 ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        r 11 11 : 0 : 1 ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        r 11 11 : 1 : 0 ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        f ?? ?? : ? : - ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>        b *? ?? : ? : - ; // j and k transition cases
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+#                         ^ source.verilog meta.udp.verilog
+#                          ^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+#                            ^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.udp.verilog comment.line.double-slash.verilog
+>        b ?* ?? : ? : - ;
+#^^^^^^^^ source.verilog meta.udp.verilog
+#        ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#         ^ source.verilog meta.udp.verilog
+#          ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#           ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#            ^ source.verilog meta.udp.verilog
+#             ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#              ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#               ^ source.verilog meta.udp.verilog
+#                ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                 ^ source.verilog meta.udp.verilog
+#                  ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                   ^ source.verilog meta.udp.verilog
+#                    ^ source.verilog meta.udp.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.udp.verilog
+#                      ^ source.verilog meta.udp.verilog constant.numeric.level.verilog
+#                       ^ source.verilog meta.udp.verilog
+#                        ^ source.verilog meta.udp.verilog punctuation.terminator.statement.verilog
+>endtable
+#^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog
+>endprimitive
+#^^^^^^^^^^^^ source.verilog meta.udp.verilog storage.type.udp.verilog

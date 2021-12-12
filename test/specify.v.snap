@@ -131,7 +131,7 @@
 #    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.control.verilog
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
-#        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.bitwise.verilog
 #         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -155,7 +155,7 @@
 #    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.control.verilog
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
-#        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.bitwise.verilog
 #         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -384,8 +384,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
 #        ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
-#              ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.comparison.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -416,8 +419,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
 #        ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
-#              ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.comparison.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -446,8 +452,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
 #        ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
-#              ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.comparison.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -543,8 +552,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
 #        ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
-#              ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.comparison.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -575,8 +587,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
 #        ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
-#              ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.comparison.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -605,8 +620,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
 #        ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
-#              ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.comparison.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog storage.type.number.verilog
+#                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog constant.numeric.bin.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.begin.verilog
@@ -657,15 +675,17 @@
 #             ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.constant.verilog
 #                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                 ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.path.verilog
-#                   ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.parenthesis.begin.verilog
 #                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.constant.verilog
 #                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
-#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.verilog
-#                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.sepeartor.colon.verilog
+#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.arithmetic.verilog
+#                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.ternary.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog variable.other.constant.verilog
-#                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
-#                            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
+#                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.parenthesis.end.verilog
+#                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.definition.path.end.verilog
+#                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog keyword.operator.assignment.verilog
 #                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog
 #                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog punctuation.parenthesis.begin.verilog

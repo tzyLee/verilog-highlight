@@ -21,6 +21,7 @@ variables:
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
   - include: "#module-declaration"
+  - include: '#udp-declaration'
   - include: '#compiler-directive'
   - include: "#keywords"
   - include: "#strings"
@@ -35,6 +36,8 @@ repository:
         match: '\b(if|else|ifnone|while|for|forever|repeat|wait|disable|case|casex|casez|default|endcase)\b'
       - name: storage.type.module.verilog
         match: '\b(module|macromodule|endmodule)\b'
+      - name: storage.type.udp.verilog
+        match: '\b(primitive|endprimitive)\b'
       - name: storage.type.function.verilog
         match: '\b(function|endfunction)\b'
       - name: storage.type.task.verilog
@@ -449,6 +452,65 @@ repository:
       '1': { name: storage.type.generate.verilog }
     patterns:
       - include: '#module-or-generate-item'
+# A.5
+  udp-declaration:
+    name: meta.udp.verilog
+    begin: '\b(primitive)'
+    beginCaptures:
+      "1": { name: storage.type.udp.verilog }
+    end: '\b(endprimitive)\b'
+    endCaptures:
+      "1": { name: storage.type.udp.verilog }
+    patterns:
+      - include: "#udp-declaration-header"
+      - include: '#comments'
+      - include: '#udp-body'
+  udp-declaration-header:
+    begin: '(?<=primitive)'
+    end: ";"
+    endCaptures:
+      '0': { name: punctuation.section.udp.begin.verilog }
+    patterns:
+      - include: '#comments'
+      - name: entity.name.type.udp.verilog
+        match: '{{variableIdentifier}}'
+      - include: '#list-of-ports'
+  udp-body:
+    name: meta.udp.body.verilog
+    patterns:
+      - include: '#port-declaration-statement'
+      - include: '#reg-declaration'
+      - include: "#udp-table"
+      - begin: '\b(initial)\b'
+        beginCaptures:
+          '1': { name: keyword.control.verilog }
+        end: ';'
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
+        patterns:
+          - include: '#punctuation-assignment'
+          - include: '#identifiers'
+          - include: '#constants'
+      - include: '#comments'
+  udp-table:
+    begin: '\b(table)\b'
+    beginCaptures:
+      '1': { name: storage.type.udp.verilog }
+    end: '\b(endtable)\b'
+    endCaptures:
+      '1': { name: storage.type.udp.verilog }
+    patterns:
+      - name: constant.numeric.level.verilog
+        match: '[01xX?bBrRfFpPnN\*\-]'
+      - name: punctuation.separator.colon.verilog
+        match: ':'
+      - name: punctuation.terminator.statement.verilog
+        match: ';'
+      - name: punctuation.parenthesis.begin.verilog
+        match: '\('
+      - name: punctuation.parenthesis.end.verilog
+        match: '\)'
+      - include: '#comments'
 # A.6.1
   continuous-assignment:
     name: meta.continuous-assignment.verilog
@@ -778,8 +840,7 @@ repository:
   list-of-path-input-output:
     patterns:
       - include: '#punctuation-comma'
-      - include: '#identifiers' # terminal_descriptor: identifier + item-access
-      - include: '#item-access'
+      - include: '#expression' # for module-path-expression and terminal-descriptor
 # A.7.4
   polarity-operator:
     name: keyword.operator.verilog

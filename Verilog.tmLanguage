@@ -14,6 +14,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#udp-declaration</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#compiler-directive</string>
       </dict>
       <dict>
@@ -52,6 +56,12 @@
             <string>storage.type.module.verilog</string>
             <key>match</key>
             <string>\b(module|macromodule|endmodule)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>storage.type.udp.verilog</string>
+            <key>match</key>
+            <string>\b(primitive|endprimitive)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -1375,6 +1385,199 @@
           </dict>
         </array>
       </dict>
+      <key>udp-declaration</key>
+      <dict>
+        <key>name</key>
+        <string>meta.udp.verilog</string>
+        <key>begin</key>
+        <string>\b(primitive)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.udp.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\b(endprimitive)\b</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.udp.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#udp-declaration-header</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#udp-body</string>
+          </dict>
+        </array>
+      </dict>
+      <key>udp-declaration-header</key>
+      <dict>
+        <key>begin</key>
+        <string>(?&lt;=primitive)</string>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.section.udp.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.udp.verilog</string>
+            <key>match</key>
+            <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#list-of-ports</string>
+          </dict>
+        </array>
+      </dict>
+      <key>udp-body</key>
+      <dict>
+        <key>name</key>
+        <string>meta.udp.body.verilog</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#port-declaration-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#reg-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#udp-table</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\b(initial)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>;</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.terminator.statement.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#punctuation-assignment</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#identifiers</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#constants</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+        </array>
+      </dict>
+      <key>udp-table</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(table)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.udp.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\b(endtable)\b</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.udp.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>constant.numeric.level.verilog</string>
+            <key>match</key>
+            <string>[01xX?bBrRfFpPnN\*\-]</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.separator.colon.verilog</string>
+            <key>match</key>
+            <string>:</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+            <key>match</key>
+            <string>;</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.parenthesis.begin.verilog</string>
+            <key>match</key>
+            <string>\(</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.parenthesis.end.verilog</string>
+            <key>match</key>
+            <string>\)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+        </array>
+      </dict>
       <key>continuous-assignment</key>
       <dict>
         <key>name</key>
@@ -2394,11 +2597,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#identifiers</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#item-access</string>
+            <string>#expression</string>
           </dict>
         </array>
       </dict>
