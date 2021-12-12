@@ -29,17 +29,17 @@
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >xor x1 (out, a, b);
-#^^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.type.module.verilog
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
-#    ^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.variable.module.verilog
+#    ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog
-#       ^ source.verilog meta.module.verilog meta.module.body.verilog
-#        ^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#           ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#             ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#              ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#                ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#                 ^ source.verilog meta.module.verilog meta.module.body.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
+#        ^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#            ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >specify
@@ -755,33 +755,33 @@
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >and (enable, preset, clear);
-#^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
-#    ^ source.verilog meta.module.verilog meta.module.body.verilog
-#     ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#           ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#             ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#                   ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#                     ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#                          ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
+#     ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#            ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#                    ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >not (qbar, ffout);
-#^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
-#    ^ source.verilog meta.module.verilog meta.module.body.verilog
-#     ^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#         ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#           ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#                ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
+#     ^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#          ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
 #                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >buf (q, ffout);
-#^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
-#    ^ source.verilog meta.module.verilog meta.module.body.verilog
-#     ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#      ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#        ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#             ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#       ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
 #              ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >posdff_udp (ffout, clock, data, preset, clear, notifier);
 #^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog

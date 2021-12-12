@@ -16,6 +16,7 @@ variables:
   constantVar: '({{constantIdentifier}})(?![_$[:alnum:]])'
   netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
   strength: 'supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1'
+  primitiveTypes: 'cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup'
 
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
@@ -59,6 +60,8 @@ repository:
         match: '\b({{strength}}|small|median|large|highz0|highz1)\b'
       - include: '#net-types'
       - include: "#parameter-types"
+      - name: support.type.verilog
+        match: '\b({{primitiveTypes}})\b'
   net-types:
     name: support.type.verilog
     match: '\b({{netTypes}})\b'
@@ -149,6 +152,7 @@ repository:
       - include: '#parameter-override'
       - include: '#module-or-generate-item-declaration'
       - include: '#continuous-assignment'
+      - include: '#gate-instantiation'
       - name: keyword.control.verilog
         match: '\b(always|initial)\b'
       # Textmate can't easily capture `always`, `inital`, (no simply way to tell apart module instantiation and variable assignment)
@@ -291,6 +295,12 @@ repository:
       - include: '#list-of-identifiers'
 # A.2.2
   drive-charge-strength:
+    begin: '\('
+    beginCaptures:
+      '0': { name: punctuation.definition.strength.begin.verilog }
+    end: '\)'
+    endCaptures:
+      '0': { name: punctuation.definition.strength.end.verilog }
     patterns:
       - include: '#punctuation-comma'
       - include: '#constants'
@@ -407,6 +417,27 @@ repository:
       - include: '#reg-declaration'
       - include: '#var-declaration'
       - include: '#local-parameter-declaration'
+# A.3.1
+  gate-instantiation:
+    begin: '\b({{primitiveTypes}})\b'
+    beginCaptures:
+      '1': { name: support.type.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - include: '#delay-2-or-3'
+      - include: '#drive-charge-strength'
+      - begin: '\('
+        beginCaptures:
+          '0': { name: punctuation.definition.arguments.begin.verilog }
+        end: '\)'
+        endCaptures:
+          '0': { name: punctuation.definition.arguments.end.verilog }
+        patterns:
+          - include: '#expression'
+      - include: '#identifiers'
+      - include: '#item-access'
 # A.4.2
   generate-region:
     name: meta.generate.verilog
@@ -805,8 +836,8 @@ repository:
       - include: "#expression"
       - include: "#punctuation-comma"
 
-# A.8.2 # TODO hierarchical_identifier
-  function-call: # TODO attribute # TODO multiline
+# A.8.2
+  function-call: # multiline would fail
     name: meta.function-call.verilog
     begin: |-
       (?x)

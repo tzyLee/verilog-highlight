@@ -131,6 +131,12 @@
             <key>include</key>
             <string>#parameter-types</string>
           </dict>
+          <dict>
+            <key>name</key>
+            <string>support.type.verilog</string>
+            <key>match</key>
+            <string>\b(cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup)\b</string>
+          </dict>
         </array>
       </dict>
       <key>net-types</key>
@@ -416,6 +422,10 @@
           <dict>
             <key>include</key>
             <string>#continuous-assignment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#gate-instantiation</string>
           </dict>
           <dict>
             <key>name</key>
@@ -875,6 +885,26 @@
       </dict>
       <key>drive-charge-strength</key>
       <dict>
+        <key>begin</key>
+        <string>\(</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.strength.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.strength.end.verilog</string>
+          </dict>
+        </dict>
         <key>patterns</key>
         <array>
           <dict>
@@ -1239,6 +1269,77 @@
           <dict>
             <key>include</key>
             <string>#local-parameter-declaration</string>
+          </dict>
+        </array>
+      </dict>
+      <key>gate-instantiation</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>support.type.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#delay-2-or-3</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#drive-charge-strength</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\(</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.arguments.begin.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.arguments.end.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#identifiers</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#item-access</string>
           </dict>
         </array>
       </dict>

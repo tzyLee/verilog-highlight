@@ -64,12 +64,14 @@
 #       ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.begin.verilog
 #         ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.end.verilog
 >    (highz0, pull1) scalared
-#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
 #     ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog
 #             ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
-#                  ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                    ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
 >    signed [B:A] #(1:2:3, 4:5:6) g = 2, h = 3;
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog
@@ -100,26 +102,27 @@
 #                                  ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                                   ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #                                    ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #                                      ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 #                                       ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                                        ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                                         ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                                          ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #                                           ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #                                             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >wand//
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
 #    ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
 >    (supply0, weak1)
-#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
 #     ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog
 #              ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
-#                   ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
 >vectored/**/signed
 #^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
 #        ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.begin.verilog
@@ -145,14 +148,14 @@
 #                ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                 ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                   ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #                    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 #                     ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                      ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                          ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 >
 >
@@ -163,21 +166,21 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #        ^ source.verilog meta.module.verilog meta.module.body.verilog
-#         ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog
 #              ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #               ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
 >k = 9;
 #^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 # ^ source.verilog meta.module.verilog meta.module.body.verilog
 #  ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
-#    ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.unsigned.verilog
 #     ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >
