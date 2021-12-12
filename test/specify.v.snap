@@ -40,7 +40,7 @@
 #              ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #                ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                 ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                  ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >specify
 #^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog storage.type.specify
@@ -764,7 +764,7 @@
 #                   ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #                     ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                          ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                           ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >not (qbar, ffout);
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
@@ -773,7 +773,7 @@
 #         ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #           ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                 ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >buf (q, ffout);
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #   ^ source.verilog meta.module.verilog meta.module.body.verilog
@@ -782,7 +782,7 @@
 #      ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #        ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog
-#              ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >posdff_udp (ffout, clock, data, preset, clear, notifier);
 #^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog
@@ -799,7 +799,7 @@
 #                                             ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #                                               ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                                                       ^ source.verilog meta.module.verilog meta.module.body.verilog
-#                                                        ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                                        ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >specify
 #^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.specify.verilog storage.type.specify

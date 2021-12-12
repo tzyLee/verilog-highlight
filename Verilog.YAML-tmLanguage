@@ -15,6 +15,7 @@ variables:
   constantIdentifier: '[_[:upper:]][_$[:digit:][:upper:]]*'
   constantVar: '({{constantIdentifier}})(?![_$[:alnum:]])'
   netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
+  strength: 'supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1'
 
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
@@ -45,8 +46,8 @@ repository:
         match: '\b(event|reg|trireg)\b'
       - name: keyword.other.block.verilog
         match: '\b(begin|end|fork|join)\b'
-      - name: keyword.other.assign.verilog
-        match: '\b(assign)\b'
+      - name: keyword.other.verilog
+        match: '\b(assign|deassign|force|release)\b'
       - name: keyword.other.port.verilog
         match: '\b(input|output|inout)\b'
       - name: keyword.other.verilog
@@ -54,6 +55,8 @@ repository:
       - name: keyword.other.verilog
         match: '\b(signed|automatic|vectored|scalared)\b'
       - include: '#system-tasks-and-functions'
+      - name: constant.language.strength.verilog
+        match: '\b({{strength}}|small|median|large|highz0|highz1)\b'
       - include: '#net-types'
       - include: "#parameter-types"
   net-types:
@@ -257,15 +260,14 @@ repository:
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
-      # TODO charge strength, drive strength
       - name: keyword.other.verilog
         match: '\b(vectored|scalared)\b'
       - name: keyword.other.verilog
         match: '\b(signed)\b'
+      - include: '#drive-charge-strength'
       - include: '#range'
-      # TODO delay3
-      - include: '#list-of-identifiers'
-      # TODO list-of-assignments
+      - include: '#delay-2-or-3'
+      - include: '#list-of-net-assignments'
   reg-declaration:
     begin: '\b(reg)\b'
     beginCaptures:
@@ -287,6 +289,36 @@ repository:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
       - include: '#list-of-identifiers'
+# A.2.2
+  drive-charge-strength:
+    patterns:
+      - include: '#punctuation-comma'
+      - include: '#constants'
+# A.2.2.3
+  delay-value:
+    patterns:
+      - name: constant.numeric.unsigned.verilog
+        match: "{{unsignedNum}}(?!')"
+      - include: '#number-real'
+      - include: '#identifier'
+  delay-2-or-3:
+    patterns:
+      - begin: '#(?=({{commentOrSpace}})*[\(\n])' # Make sure there's nothing between # and (
+        beginCaptures:
+          '0': { name: keyword.operator.delay.verilog }
+        end: '\)'
+        endCaptures:
+          '0': { name: punctuation.definition.delay-expression.end.verilog }
+        patterns:
+          - include: '#comments'
+          - name: punctuation.definition.delay-expression.begin.verilog
+            match: '\('
+          - name: punctuation.separator.colon.verilog
+            match: ':'
+          - include: '#expression'
+      - name: keyword.operator.delay.verilog
+        match: '#'
+      - include: '#delay-value'
 # A.2.3
   list-of-identifiers:
     patterns:
@@ -391,12 +423,14 @@ repository:
     name: meta.continuous-assignment.verilog
     begin: '\b(assign)\b'
     beginCaptures:
-      '1': { name: keyword.other.assign.verilog }
+      '1': { name: keyword.other.verilog }
     end: ';'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
-    patterns: # TODO drive_strength, delay3
+    patterns:
       - include: '#list-of-net-assignments'
+      - include: '#drive-charge-strength'
+      - include: '#delay-2-or-3'
   list-of-net-assignments:
     patterns:
       - include: '#comments'
@@ -438,6 +472,19 @@ repository:
           - include: '#expression'
           - include: '#delay-or-event-control'
       - include: '#lvalue'
+  procedural-continuous-assignment:
+    patterns:
+      - begin: '\b(release|deassign)\b'
+        beginCaptures:
+          '1': { name: keyword.other.verilog }
+        end: ';'
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
+        patterns:
+          - include: '#lvalue'
+      - include: '#list-of-net-assignments'
+      - include: '#drive-charge-strength'
+      - include: '#delay-2-or-3'
 # A.6.3
   parallel-block:
     name: meta.parallel-block.verilog
@@ -517,10 +564,9 @@ repository:
           - name: punctuation.separator.statement.verilog
             match: ';'
           - include: '#expression'
-  statement-or-null:
-    patterns:
-      - include: '#statement'
-      # TODO ;
+      # null statement
+      - name: punctuation.terminator.statement.verilog
+        match: ';'
 # A.6.5
   delay-control:
     patterns:
@@ -537,10 +583,7 @@ repository:
           - include: '#expression'
       - name: keyword.operator.delay.verilog
         match: '#'
-      - name: constant.numeric.unsigned.verilog
-        match: "{{unsignedNum}}(?!')"
-      - include: '#number-real'
-      - include: '#identifier'
+      - include: '#delay-value'
   event-control:
     name: entity.event-control.verilog
     patterns:
@@ -626,7 +669,7 @@ repository:
         match: '\bdefault\b'
       - name: punctuaton.definition.section.case.verilog
         match: ':'
-      - include: '#statement-or-null'
+      - include: '#statement'
       - include: '#expression-list'
 # A.6.8
   loop-statement:
@@ -902,6 +945,8 @@ repository:
           - include: "#number-hex"
           - include: "#number-oct"
           - include: "#number-bin"
+          - name: constant.language.strength.verilog
+            match: '\b({{strength}}|small|median|large|highz0|highz1)\b'
           - name: invalid.illegal.name.verilog"
             match: '\b[0-9]+\w+' # identifier can't start with number
   number-bin:

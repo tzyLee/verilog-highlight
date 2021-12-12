@@ -1,0 +1,185 @@
+>module test;
+#^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog
+#      ^ source.verilog meta.module.verilog
+#       ^^^^ source.verilog meta.module.verilog entity.name.type.module.verilog
+#           ^ source.verilog meta.module.verilog punctuation.section.module.begin.verilog
+>
+>parameter A = 5;
+#^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.constant.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog punctution.terminator.statement.verilog
+>localparam B = 3;
+#^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.constant.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog punctution.terminator.statement.verilog
+>
+>wire signed [5:2] c [0:3];
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
+#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                         ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>reg d;
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>event e;
+#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>integer f;
+#^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>
+>trireg /**/
+#^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog
+#       ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.begin.verilog
+#         ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.end.verilog
+>    (highz0, pull1) scalared
+#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog
+#             ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
+#                  ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                    ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+>    signed [B:A] #(1:2:3, 4:5:6) g = 2, h = 3;
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.constant.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.constant.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.delay.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.delay-expression.begin.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.colon.verilog
+#                     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                      ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.colon.verilog
+#                       ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                        ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.colon.verilog
+#                            ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.colon.verilog
+#                              ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.delay-expression.end.verilog
+#                                ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                 ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                                  ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                                      ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#                                       ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                        ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                                         ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>
+>wand//
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#    ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
+>    (supply0, weak1)
+#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog
+#              ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog constant.language.strength.verilog
+#                   ^^ source.verilog meta.module.verilog meta.module.body.verilog
+>vectored/**/signed
+#^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+#        ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.begin.verilog
+#          ^^ source.verilog meta.module.verilog meta.module.body.verilog comment.block.verilog punctuation.definition.comment.end.verilog
+#            ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.verilog
+>[2:0] #(A:B:2) m = 2, n = 6,
+#^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+# ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
+#   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.delay.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.delay-expression.begin.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.constant.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.colon.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.constant.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.colon.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.delay-expression.end.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#                     ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                      ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                       ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                        ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#                         ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                           ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+>
+>
+>wire i = 1, j = 2,
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
+>k = 9;
+#^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+# ^ source.verilog meta.module.verilog meta.module.body.verilog
+#  ^ source.verilog meta.module.verilog meta.module.body.verilog keyword.operator.assignment.verilog
+#   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>
+>
+>endmodule
+#^^^^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog

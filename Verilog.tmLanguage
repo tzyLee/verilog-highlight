@@ -91,9 +91,9 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>keyword.other.assign.verilog</string>
+            <string>keyword.other.verilog</string>
             <key>match</key>
-            <string>\b(assign)\b</string>
+            <string>\b(assign|deassign|force|release)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -116,6 +116,12 @@
           <dict>
             <key>include</key>
             <string>#system-tasks-and-functions</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.language.strength.verilog</string>
+            <key>match</key>
+            <string>\b(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|small|median|large|highz0|highz1)\b</string>
           </dict>
           <dict>
             <key>include</key>
@@ -781,11 +787,19 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#drive-charge-strength</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#range</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#list-of-identifiers</string>
+            <string>#delay-2-or-3</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#list-of-net-assignments</string>
           </dict>
         </array>
       </dict>
@@ -856,6 +870,101 @@
           <dict>
             <key>include</key>
             <string>#list-of-identifiers</string>
+          </dict>
+        </array>
+      </dict>
+      <key>drive-charge-strength</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#constants</string>
+          </dict>
+        </array>
+      </dict>
+      <key>delay-value</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>constant.numeric.unsigned.verilog</string>
+            <key>match</key>
+            <string>[0-9][_0-9]*(?!')</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#number-real</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#identifier</string>
+          </dict>
+        </array>
+      </dict>
+      <key>delay-2-or-3</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>#(?=((/\*.*\*/)|(//.*\n)|\s)*[\(\n])</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.delay.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.delay-expression.end.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#comments</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.delay-expression.begin.verilog</string>
+                <key>match</key>
+                <string>\(</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>punctuation.separator.colon.verilog</string>
+                <key>match</key>
+                <string>:</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.delay.verilog</string>
+            <key>match</key>
+            <string>#</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#delay-value</string>
           </dict>
         </array>
       </dict>
@@ -1176,7 +1285,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.other.assign.verilog</string>
+            <string>keyword.other.verilog</string>
           </dict>
         </dict>
         <key>end</key>
@@ -1194,6 +1303,14 @@
           <dict>
             <key>include</key>
             <string>#list-of-net-assignments</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#drive-charge-strength</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#delay-2-or-3</string>
           </dict>
         </array>
       </dict>
@@ -1332,6 +1449,53 @@
           <dict>
             <key>include</key>
             <string>#lvalue</string>
+          </dict>
+        </array>
+      </dict>
+      <key>procedural-continuous-assignment</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\b(release|deassign)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.other.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>;</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.terminator.statement.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#lvalue</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#list-of-net-assignments</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#drive-charge-strength</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#delay-2-or-3</string>
           </dict>
         </array>
       </dict>
@@ -1557,15 +1721,11 @@
               </dict>
             </array>
           </dict>
-        </array>
-      </dict>
-      <key>statement-or-null</key>
-      <dict>
-        <key>patterns</key>
-        <array>
           <dict>
-            <key>include</key>
-            <string>#statement</string>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+            <key>match</key>
+            <string>;</string>
           </dict>
         </array>
       </dict>
@@ -1619,18 +1779,8 @@
             <string>#</string>
           </dict>
           <dict>
-            <key>name</key>
-            <string>constant.numeric.unsigned.verilog</string>
-            <key>match</key>
-            <string>[0-9][_0-9]*(?!')</string>
-          </dict>
-          <dict>
             <key>include</key>
-            <string>#number-real</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#identifier</string>
+            <string>#delay-value</string>
           </dict>
         </array>
       </dict>
@@ -1907,7 +2057,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#statement-or-null</string>
+            <string>#statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -2685,6 +2835,12 @@
               <dict>
                 <key>include</key>
                 <string>#number-bin</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>constant.language.strength.verilog</string>
+                <key>match</key>
+                <string>\b(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|small|median|large|highz0|highz1)\b</string>
               </dict>
               <dict>
                 <key>name</key>
