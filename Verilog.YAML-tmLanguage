@@ -30,7 +30,7 @@ repository:
     comment: "Used when keyword is typed, but the statement is incomplete"
     patterns:
       - name: keyword.control.verilog
-        match: '\b(if|else|while|for|forever|repeat|wait|disable|case|casex|casez|default|endcase)\b'
+        match: '\b(if|else|ifnone|while|for|forever|repeat|wait|disable|case|casex|casez|default|endcase)\b'
       - name: storage.type.module.verilog
         match: '\b(module|macromodule|endmodule)\b'
       - name: storage.type.function.verilog
@@ -39,8 +39,8 @@ repository:
         match: '\b(task|endtask)\b'
       - name: keyword.control.verilog
         match: '\b(always|initial)\b'
-      - name: keyword.other.event.verilog
-        match: '\b(posedge|negedge|or)\b'
+      - name: keyword.other.verilog
+        match: '\b(posedge|negedge|or|edge)\b'
       - name: support.type.verilog
         match: '\b(event|reg|trireg)\b'
       - name: keyword.other.block.verilog
@@ -50,7 +50,7 @@ repository:
       - name: keyword.other.port.verilog
         match: '\b(input|output|inout)\b'
       - name: keyword.other.verilog
-        match: '\b(parameter|localparam)\b'
+        match: '\b(parameter|localparam|specparam)\b'
       - name: keyword.other.verilog
         match: '\b(signed|automatic|vectored|scalared)\b'
       - include: '#system-tasks-and-functions'
@@ -136,6 +136,8 @@ repository:
   non-port-module-item:
     patterns:
       - include: '#generate-region'
+      - include: '#specify-block'
+      - include: '#specparam-declaration'
       - include: '#module-or-generate-item'
   module-or-generate-item:
     patterns:
@@ -189,6 +191,21 @@ repository:
       - name: keyword.other.verilog
         match: '\b(signed)\b'
       - include: '#range'
+      - include: '#parameter-types'
+      - include: '#parameter-assignment'
+      - include: '#punctuation-comma'
+  specparam-declaration:
+    begin: '\b(specparam)\b'
+    beginCaptures:
+      '1': { name: keyword.other.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctution.terminator.statement.verilog }
+    patterns:
+      - name: keyword.other.verilog
+        match: '\b(signed)\b'
+      - include: '#range'
+      - include: '#pulse-control-specparam'
       - include: '#parameter-types'
       - include: '#parameter-assignment'
       - include: '#punctuation-comma'
@@ -269,6 +286,19 @@ repository:
       - include: '#punctuation-assignment'
       - include: '#expression'
       - include: "#punctuation-comma"
+# A.2.4
+  pulse-control-specparam:
+    begin: 'PATHPULSE\$'
+    beginCaptures:
+      '0': { name: keyword.other.verilog }
+    end: '(?=\s|\/\/|\/\*|=)'
+    patterns:
+      - name: keyword.other.verilog
+        match: '\$'
+      - name: variable.other.readwrite.verilog
+        # assume there's no \$ in input / output identifiers
+        match: '[_a-zA-Z][_a-zA-Z0-9]*|{{escapedIdentifier}}'
+      - include: '#item-access'
 # A.2.5
   range:
     patterns:
@@ -505,7 +535,7 @@ repository:
       - include: '#hierarchical-identifier'
   event-expression:
     patterns:
-      - name: keyword.other.event.verilog
+      - name: keyword.other.verilog
         match: '\b(posedge|negedge|or)\b'
       - include: '#expression'
   procedural-timing-control:
@@ -560,6 +590,112 @@ repository:
     match: '({{variableIdentifier}})(?=[\(;])'
     captures:
       '1': { name: entity.name.function.call.verilog }
+# A.7.1
+  specify-block:
+    name: meta.specify.verilog
+    begin: '\b(specify)\b'
+    beginCaptures:
+      '1': { name: storage.type.specify } # use storage.type for consistency
+    end: '\b(endspecify)\b'
+    endCaptures:
+      '1': { name: storage.type.specify }
+    patterns:
+      - include: '#specify-item'
+  specify-item:
+    patterns:
+      - include: '#comments'
+      - include: '#compiler-directive'
+      - include: '#specparam-declaration'
+      - include: '#pulsestyle-showcancelled-declaration'
+      - include: '#path-declaration'
+      - include: '#system-timing-check'
+  pulsestyle-showcancelled-declaration:
+    begin: '\b(pulsestyle_on(event|detect)|(no)?showcancelled)\b'
+    beginCaptures:
+      '1': { name: keyword.other.verilog}
+    end: ';'
+    endCaptures:
+      '0': { name: punctution.terminator.statement.verilog }
+    patterns:
+      - include: '#list-of-path-input-output'
+# A.7.2
+  path-declaration:
+    patterns:
+      - include: '#simple-and-edge-sensitive-path-declaration'
+      - name: keyword.control.verilog
+        match: '\b(if|ifnone)\b'
+  simple-and-edge-sensitive-path-declaration:
+    begin: '(?=\()'
+    end: ';'
+    endCaptures:
+      '0': { name: punctution.terminator.statement.verilog }
+    patterns:
+      - include: '#path-description'
+      - include: '#path-delay-value'
+  path-description:
+    begin: '\('
+    beginCaptures:
+      '0': { name: punctuation.definition.path.begin.verilog }
+    end: '\)'
+    endCaptures:
+      '0': { name: punctuation.definition.path.end.verilog }
+    patterns:
+      - name: keyword.operator.path.verilog
+        match: '[\*=]>'
+      - name: punctuation.sepeartor.colon.verilog
+        match: ':'
+      - name: keyword.other.verilog
+        match: '\b(posedge|negedge)\b'
+      - include: '#polarity-operator'
+      - include: '#list-of-path-input-output'
+  list-of-path-input-output:
+    patterns:
+      - include: '#punctuation-comma'
+      - include: '#identifiers' # terminal_descriptor: identifier + item-access
+      - include: '#item-access'
+# A.7.4
+  polarity-operator:
+    name: keyword.operator.verilog
+    match: '[+-]'
+  path-delay-value:
+    begin: '='
+    beginCaptures:
+      '0': { name: keyword.operator.assignment.verilog }
+    end: '(?=;)'
+    patterns:
+      - include: '#expression' # path-delay-expression is expression
+# A.7.5
+  system-timing-check:
+    begin: '(\$(?:setup|hold|setuphold|recovery|removal|recrem|skew|timeskew|fullskew|period|width|nochange))\b'
+    beginCaptures:
+      '1': { name: entity.name.function.call.timing-check.verilog }
+    end: ';'
+    endCaptures:
+      '0': { name: punctuation.terminator.statement.verilog }
+    patterns:
+      - begin: '\('
+        end: '\)'
+        patterns:
+          - name: keyword.operator.verilog
+            match: '&&&'
+          - include: '#edge-control-specifier'
+          - name: keyword.other.verilog
+            match: '\b(posedge|negedge|or|edge)\b'
+          - include: '#punctuation-comma'
+          - include: '#expression'
+  edge-control-specifier:
+    begin: '\b(edge)\b'
+    beginCaptures:
+      '1': { name: keyword.other.verilog }
+    end: '\]'
+    endCaptures:
+      '0': { name: punctuation.definition.edge.end.verilog }
+    patterns:
+      - name: punctuation.definition.edge.begin.verilog
+        match: '\['
+      - include: '#punctuation-comma'
+      - name: constant.numeric.verilog
+        match: '[01xXzZ]'
 # A.8.1
   concatenation:
     name: meta.concatenation.verilog

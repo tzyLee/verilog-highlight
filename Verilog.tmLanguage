@@ -45,7 +45,7 @@
             <key>name</key>
             <string>keyword.control.verilog</string>
             <key>match</key>
-            <string>\b(if|else|while|for|forever|repeat|wait|disable|case|casex|casez|default|endcase)\b</string>
+            <string>\b(if|else|ifnone|while|for|forever|repeat|wait|disable|case|casex|casez|default|endcase)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -73,9 +73,9 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>keyword.other.event.verilog</string>
+            <string>keyword.other.verilog</string>
             <key>match</key>
-            <string>\b(posedge|negedge|or)\b</string>
+            <string>\b(posedge|negedge|or|edge)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -105,7 +105,7 @@
             <key>name</key>
             <string>keyword.other.verilog</string>
             <key>match</key>
-            <string>\b(parameter|localparam)\b</string>
+            <string>\b(parameter|localparam|specparam)\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -375,6 +375,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#specify-block</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#specparam-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#module-or-generate-item</string>
           </dict>
         </array>
@@ -540,6 +548,58 @@
           <dict>
             <key>include</key>
             <string>#range</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#parameter-types</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#parameter-assignment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
+          </dict>
+        </array>
+      </dict>
+      <key>specparam-declaration</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(specparam)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctution.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>\b(signed)\b</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#range</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#pulse-control-specparam</string>
           </dict>
           <dict>
             <key>include</key>
@@ -790,6 +850,40 @@
           <dict>
             <key>include</key>
             <string>#punctuation-comma</string>
+          </dict>
+        </array>
+      </dict>
+      <key>pulse-control-specparam</key>
+      <dict>
+        <key>begin</key>
+        <string>PATHPULSE\$</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?=\s|\/\/|\/\*|=)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>\$</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>variable.other.readwrite.verilog</string>
+            <key>match</key>
+            <string>[_a-zA-Z][_a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#item-access</string>
           </dict>
         </array>
       </dict>
@@ -1545,7 +1639,7 @@
         <array>
           <dict>
             <key>name</key>
-            <string>keyword.other.event.verilog</string>
+            <string>keyword.other.verilog</string>
             <key>match</key>
             <string>\b(posedge|negedge|or)\b</string>
           </dict>
@@ -1704,6 +1798,340 @@
             <string>entity.name.function.call.verilog</string>
           </dict>
         </dict>
+      </dict>
+      <key>specify-block</key>
+      <dict>
+        <key>name</key>
+        <string>meta.specify.verilog</string>
+        <key>begin</key>
+        <string>\b(specify)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.specify</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\b(endspecify)\b</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.specify</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#specify-item</string>
+          </dict>
+        </array>
+      </dict>
+      <key>specify-item</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#compiler-directive</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#specparam-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#pulsestyle-showcancelled-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#path-declaration</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#system-timing-check</string>
+          </dict>
+        </array>
+      </dict>
+      <key>pulsestyle-showcancelled-declaration</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(pulsestyle_on(event|detect)|(no)?showcancelled)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctution.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#list-of-path-input-output</string>
+          </dict>
+        </array>
+      </dict>
+      <key>path-declaration</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#simple-and-edge-sensitive-path-declaration</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.verilog</string>
+            <key>match</key>
+            <string>\b(if|ifnone)\b</string>
+          </dict>
+        </array>
+      </dict>
+      <key>simple-and-edge-sensitive-path-declaration</key>
+      <dict>
+        <key>begin</key>
+        <string>(?=\()</string>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctution.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#path-description</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#path-delay-value</string>
+          </dict>
+        </array>
+      </dict>
+      <key>path-description</key>
+      <dict>
+        <key>begin</key>
+        <string>\(</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.path.begin.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.path.end.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.path.verilog</string>
+            <key>match</key>
+            <string>[\*=]&gt;</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>punctuation.sepeartor.colon.verilog</string>
+            <key>match</key>
+            <string>:</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
+            <string>\b(posedge|negedge)\b</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#polarity-operator</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#list-of-path-input-output</string>
+          </dict>
+        </array>
+      </dict>
+      <key>list-of-path-input-output</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#identifiers</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#item-access</string>
+          </dict>
+        </array>
+      </dict>
+      <key>polarity-operator</key>
+      <dict>
+        <key>name</key>
+        <string>keyword.operator.verilog</string>
+        <key>match</key>
+        <string>[+-]</string>
+      </dict>
+      <key>path-delay-value</key>
+      <dict>
+        <key>begin</key>
+        <string>=</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.assignment.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?=;)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>system-timing-check</key>
+      <dict>
+        <key>begin</key>
+        <string>(\$(?:setup|hold|setuphold|recovery|removal|recrem|skew|timeskew|fullskew|period|width|nochange))\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.call.timing-check.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>;</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.terminator.statement.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\(</string>
+            <key>end</key>
+            <string>\)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.verilog</string>
+                <key>match</key>
+                <string>&amp;&amp;&amp;</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#edge-control-specifier</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>keyword.other.verilog</string>
+                <key>match</key>
+                <string>\b(posedge|negedge|or|edge)\b</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#punctuation-comma</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>edge-control-specifier</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(edge)\b</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\]</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.edge.end.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.edge.begin.verilog</string>
+            <key>match</key>
+            <string>\[</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#punctuation-comma</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.numeric.verilog</string>
+            <key>match</key>
+            <string>[01xXzZ]</string>
+          </dict>
+        </array>
       </dict>
       <key>concatenation</key>
       <dict>
