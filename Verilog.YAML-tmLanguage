@@ -1025,6 +1025,7 @@ repository:
 # A.8.3
   expression:
     patterns:
+      - include: '#keywords'
       - include: "#expression-without-identifiers"
       - include: "#hierarchical-identifier"
   expression-without-identifiers:

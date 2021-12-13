@@ -3106,6 +3106,10 @@
         <array>
           <dict>
             <key>include</key>
+            <string>#keywords</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#expression-without-identifiers</string>
           </dict>
           <dict>
