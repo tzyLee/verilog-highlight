@@ -3507,8 +3507,29 @@
         <string>string.quoted.double.verilog</string>
         <key>begin</key>
         <string>"</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.verilog</string>
+          </dict>
+        </dict>
         <key>end</key>
-        <string>"</string>
+        <string>(")|(\n$)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.end.verilog</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>invalid.illegal.newline.verilog</string>
+          </dict>
+        </dict>
         <key>patterns</key>
         <array>
           <dict>

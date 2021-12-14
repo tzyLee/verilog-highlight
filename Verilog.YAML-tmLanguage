@@ -1194,7 +1194,12 @@ repository:
   strings:
     name: string.quoted.double.verilog
     begin: '"'
-    end: '"'
+    beginCaptures:
+      '0': { name: punctuation.definition.string.begin.verilog }
+    end: '(")|(\n$)'
+    endCaptures:
+      '1': { name: punctuation.definition.string.end.verilog }
+      '2': { name: invalid.illegal.newline.verilog }
     patterns:
       - name: constant.character.escape.verilog
         match: '\\([nt\\"]|[0-7]{1,3})'
