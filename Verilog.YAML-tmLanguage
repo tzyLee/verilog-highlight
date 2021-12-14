@@ -606,6 +606,7 @@ repository:
       - include: '#comments'
       - include: '#punctuation-assignment'
       - include: '#lvalue'
+      - include: '#expression' # rvalue
 # A.6.2
   blocking-assignment:
     patterns:
