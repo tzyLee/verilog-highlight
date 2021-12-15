@@ -1240,6 +1240,13 @@ repository:
               "0": { name: punctuation.definition.comment.verilog }
             end: '\n'
       - include: '#attribute'
+      - name: comment.block.protected.verilog
+        begin: '(`protected)\b'
+        beginCaptures:
+          '1': { name: keyword.control.directive.verilog }
+        end: '(`endprotected)\b'
+        endCaptures:
+          '1': { name: keyword.control.directive.verilog }
 # A.9.3
   text-macro:
     name: macro.verilog entity.name.function.preprocessor.verilog

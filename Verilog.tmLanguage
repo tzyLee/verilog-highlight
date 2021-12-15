@@ -3648,6 +3648,30 @@
             <key>include</key>
             <string>#attribute</string>
           </dict>
+          <dict>
+            <key>name</key>
+            <string>comment.block.protected.verilog</string>
+            <key>begin</key>
+            <string>(`protected)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.directive.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(`endprotected)\b</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.directive.verilog</string>
+              </dict>
+            </dict>
+          </dict>
         </array>
       </dict>
       <key>text-macro</key>

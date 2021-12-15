@@ -32,7 +32,8 @@
         "extensions": [
           ".v",
           ".vh",
-          ".vl"
+          ".vl",
+          ".vp"
         ],
         "configuration": "./language-configuration.json"
       }
