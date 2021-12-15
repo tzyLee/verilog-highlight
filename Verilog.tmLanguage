@@ -139,6 +139,12 @@
             <key>name</key>
             <string>keyword.other.verilog</string>
             <key>match</key>
+            <string>\b(design|default|instance|cell|liblist|use)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.verilog</string>
+            <key>match</key>
             <string>\b(signed|automatic|vectored|scalared)\b</string>
           </dict>
           <dict>
@@ -2182,7 +2188,7 @@
           </dict>
           <dict>
             <key>match</key>
-            <string>^\s*(?!(?:initial|always)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*.*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*.*\*/)|(//.*\n)|\s)*(?=\(|$)</string>
+            <string>^\s*(?!(?:initial|always|else)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*.*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*.*\*/)|(//.*\n)|\s)*(?=\(|$)</string>
             <key>captures</key>
             <dict>
               <key>1</key>
@@ -2323,7 +2329,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(@)</string>
+            <string>(@)(?=((/\*.*\*/)|(//.*\n)|\s)*[\(\n])</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>

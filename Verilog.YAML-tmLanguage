@@ -61,8 +61,8 @@ repository:
         match: '\b(input|output|inout)\b'
       - name: keyword.other.verilog
         match: '\b(parameter|localparam|specparam|defparam)\b'
-      # - name: keyword.other.verilog
-      #   match: '\b(design|default|instance|cell|liblist|use)\b'
+      - name: keyword.other.verilog
+        match: '\b(design|default|instance|cell|liblist|use)\b'
       - name: keyword.other.verilog
         match: '\b(signed|automatic|vectored|scalared)\b'
       - include: '#system-tasks-and-functions'
@@ -712,7 +712,7 @@ repository:
       # excluding all `module-or-generate-item` keywords may be a potential fix.
       # TODO: matching all keywords of module-or-generate-item to properly tokenize
       #       generate-constructs, and fixing the problem above.
-      - match: '^\s*(?!(?:initial|always)\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|$)'
+      - match: '^\s*(?!(?:initial|always|else)\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|$)'
         captures:
           '1': { name: entity.name.type.module.verilog }
           '2': { name: comment.block.verilog }
@@ -752,8 +752,9 @@ repository:
       - include: '#delay-value'
   event-control:
     name: entity.event-control.verilog
+    # assumes most people would write `@(` or `@*` on the same line
     patterns:
-      - begin: '(@)'
+      - begin: '(@)(?=({{commentOrSpace}})*[\(\n])' # Make sure there's nothing between @ and (
         beginCaptures:
           '1': { name: keyword.operator.event.verilog }
         end: '(\))'
