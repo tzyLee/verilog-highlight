@@ -712,7 +712,7 @@ repository:
       # excluding all `module-or-generate-item` keywords may be a potential fix.
       # TODO: matching all keywords of module-or-generate-item to properly tokenize
       #       generate-constructs, and fixing the problem above.
-      - match: '^\s*({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|$)'
+      - match: '^\s*(?!(?:initial|always)\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|$)'
         captures:
           '1': { name: entity.name.type.module.verilog }
           '2': { name: comment.block.verilog }
