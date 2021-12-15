@@ -1,12 +1,13 @@
 {
   "name": "verilog-highlight",
-  "displayName": "verilog-highlight",
+  "displayName": "Verilog Highlight",
   "description": "",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/tzyLee/verilog-highlight"
   },
+  "icon": "docs/images/icon.png",
   "scripts": {
     "build": "yarn build:grammar",
     "build:grammar": "tsc -b build -v && node build/build.js",
