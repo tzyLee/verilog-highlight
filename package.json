@@ -51,12 +51,13 @@
       }
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "@types/js-yaml": "latest",
     "@types/node": "latest",
     "js-yaml": "latest",
     "plist": "latest",
     "typescript": "latest",
+    "vsce": "latest",
     "vscode-tmgrammar-test": "^0.0.11"
   }
 }
