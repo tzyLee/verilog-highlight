@@ -20,7 +20,7 @@
     "test:update": "yarn build && yarn vscode-tmgrammar-snap -t './test/*.v' -s source.verilog -g './Verilog.tmLanguage' --updateSnapshot",
     "package": "yarn vsce package"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.62.0"
   },
@@ -61,10 +61,10 @@
         "scopeName": "markdown.verilog.codeblock",
         "path": "./MarkdownCodeblock.tmLanguage",
         "injectTo": [
-            "text.html.markdown"
+          "text.html.markdown"
         ],
         "embeddedLanguages": {
-            "meta.embedded.block.verilog": "source.verilog"
+          "meta.embedded.block.verilog": "source.verilog"
         }
       }
     ],
