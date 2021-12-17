@@ -1,11 +1,16 @@
 {
   "name": "verilog-highlight",
   "displayName": "Verilog Highlight",
-  "description": "",
+  "description": "Syntax highlighter for Verilog",
   "license": "MIT",
+  "publisher": "tzylee",
+  "homepage": "https://github.com/tzyLee/verilog-highlight",
   "repository": {
     "type": "git",
     "url": "https://github.com/tzyLee/verilog-highlight"
+  },
+  "bugs": {
+    "url": "https://github.com/tzyLee/verilog-highlight/issues"
   },
   "icon": "docs/images/icon.png",
   "scripts": {
