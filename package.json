@@ -20,7 +20,7 @@
     "test:update": "yarn build && yarn vscode-tmgrammar-snap -t './test/*.v' -s source.verilog -g './Verilog.tmLanguage' --updateSnapshot",
     "package": "yarn vsce package"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.62.0"
   },
