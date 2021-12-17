@@ -68,7 +68,7 @@ repository:
         match: '\b(signed|automatic|vectored|scalared)\b'
       - include: '#system-tasks-and-functions'
       - name: constant.language.strength.verilog
-        match: '\b({{strength}}|small|median|large|highz0|highz1)\b'
+        match: '\b({{strength}}|small|medium|large|highz0|highz1)\b'
       - include: '#net-types'
       - include: "#parameter-types"
       - name: support.type.verilog
