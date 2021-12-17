@@ -56,6 +56,16 @@
         "language": "verilog",
         "scopeName": "source.verilog",
         "path": "./Verilog.tmLanguage"
+      },
+      {
+        "scopeName": "markdown.verilog.codeblock",
+        "path": "./MarkdownCodeblock.tmLanguage",
+        "injectTo": [
+            "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+            "meta.embedded.block.verilog": "source.verilog"
+        }
       }
     ],
     "configurationDefaults": {

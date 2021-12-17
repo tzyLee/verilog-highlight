@@ -6,6 +6,7 @@ import plist = require('plist');
 
 enum Language {
     Verilog = "Verilog",
+    MarkdownCodeblock = "MarkdownCodeblock",
 }
 
 enum Extension {
@@ -57,6 +58,11 @@ function getVerilogGrammar(getVariables: (tsGrammarVariables: MapLike<string>) =
     return updateGrammarVariables(tsGrammarBeforeTransformation, getVariables(tsGrammarBeforeTransformation.variables as MapLike<string>));
 }
 
+function getMarkdownCodeblockGrammar(getVariables: (tsGrammarVariables: MapLike<string>) => MapLike<string>) {
+    const tsGrammarBeforeTransformation = readYaml(file(Language.MarkdownCodeblock, Extension.YamlTmLanguage)) as TmGrammar;
+    return updateGrammarVariables(tsGrammarBeforeTransformation, getVariables(tsGrammarBeforeTransformation.variables as MapLike<string>));
+}
+
 function replacePatternVariables(pattern: string, variableReplacers: VariableReplacer[]) {
     let result = pattern;
     for (const [variableName, value] of variableReplacers) {
@@ -87,6 +93,10 @@ function buildGrammar() {
 
     // Write Verilog.tmLanguage
     writePlistFile(vGrammar, file(Language.Verilog, Extension.TmLanguage));
+
+    const mGrammar = getMarkdownCodeblockGrammar(grammarVariables => grammarVariables);
+    // Write MarkdownCodeblock.tmLanguage
+    writePlistFile(mGrammar, file(Language.MarkdownCodeblock, Extension.TmLanguage));
 }
 
 buildGrammar();
