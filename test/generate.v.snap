@@ -382,7 +382,7 @@
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
-#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
@@ -400,7 +400,7 @@
 #                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
 #                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >    xor g2 (sum[i], t[1][i], c[i]);
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
@@ -408,7 +408,7 @@
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
-#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
@@ -426,7 +426,7 @@
 #                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
 #                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >    and g3 (t[2][i], a[i], b[i]);
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
@@ -434,7 +434,7 @@
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
-#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
@@ -452,7 +452,7 @@
 #                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
 #                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >    and g4 (t[3][i], t[1][i], c[i]);
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
@@ -460,7 +460,7 @@
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
-#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
@@ -481,7 +481,7 @@
 #                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
 #                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >    or g5 (c[i+1], t[2][i], t[3][i]);
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
@@ -489,7 +489,7 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #       ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
 #         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
-#          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
@@ -512,7 +512,7 @@
 #                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
 #                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
 #                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >end
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
@@ -620,13 +620,13 @@
 #        ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
-#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                   ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 #                        ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
@@ -662,13 +662,13 @@
 #        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #           ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
-#             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                  ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 #                       ^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
@@ -732,13 +732,13 @@
 #        ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
-#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                   ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 #                        ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
@@ -764,13 +764,13 @@
 #        ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #             ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
-#               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                 ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 #                         ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
 #                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog comment.line.double-slash.verilog punctuation.definition.comment.verilog
@@ -907,23 +907,22 @@
 #                                              ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.label
 >        CLA_multiplier #(a_width,b_width) u1(a, b, product);
 #^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
-#        ^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
+#        ^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
-#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog keyword.operator.delay.verilog
-#                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.begin.verilog
+#                       ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog keyword.operator.delay.verilog
 #                         ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
+#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.separator.comma.verilog
 #                                 ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.end.verilog
+#                                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.definition.parameter.end.verilog
 #                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
-#                                          ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.function.call.verilog
-#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
+#                                          ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
+#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                                              ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
 #                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                                                 ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
 #                                                   ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
+#                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >    // instantiate a CLA multiplier
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.whitespace.comment.leading.verilog
@@ -942,23 +941,22 @@
 #                ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.label
 >        WALLACE_multiplier #(a_width,b_width) u1(a, b, product);
 #^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
-#        ^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
+#        ^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
-#                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog keyword.operator.delay.verilog
-#                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.begin.verilog
+#                           ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog keyword.operator.delay.verilog
 #                             ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
+#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.separator.comma.verilog
 #                                     ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.end.verilog
+#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.definition.parameter.end.verilog
 #                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
-#                                              ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.function.call.verilog
-#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
+#                                              ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
+#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                                                  ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
 #                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
 #                                                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
 #                                                       ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog
+#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >    // instantiate a Wallace-tree multiplier
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.generate.verilog meta.sequential-block.verilog punctuation.whitespace.comment.leading.verilog
@@ -1177,108 +1175,108 @@
 #            ^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
-#                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                           ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                           ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                      ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                      ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                                  ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 >                           .addr(addr), .rasb(rasx), .casb(casx),
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                 ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                 ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                      ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                         ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                              ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                         ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                              ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                   ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                      ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                           ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                      ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                           ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 >                           .web(wex), .udqm(dqm[2*i+1]), .ldqm(dqm[2*i]),
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                       ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
-#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                       ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                       ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                          ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                               ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
-#                                                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                                                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                          ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                               ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#                                                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                                                                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                                        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 >                           .dqi(data[15+16*i:16*i]), .dev_id(dev_id));
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
-#                                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
-#                                             ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#                                     ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                        ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
+#                                             ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                   ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                      ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                             ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
-#                                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
+#                                                      ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                             ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
+#                                                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >        // The hierarchical instance names are memory.word[3].p,
 #^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.whitespace.comment.leading.verilog
@@ -1475,93 +1473,93 @@
 #            ^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog entity.name.type.module.verilog
 #                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog entity.name.variable.module.verilog
-#                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                           ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                           ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                      ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                  ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                      ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                            ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                               ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                                  ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 >                           .addr(addr), .rasb(rasx), .casb(casx),
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                 ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                 ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                      ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                         ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                              ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                         ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                              ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                   ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                      ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                           ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                                      ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                           ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 >                           .web(wex), .dqm(dqm[i]),
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                    ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                           ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
-#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                           ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                  ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 >                           .dqi(data[7+8*i:8*i]), .dev_id(dev_id));
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
-#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
-#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
-#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
-#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
-#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
-#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
+#                            ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                    ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.definition.begin.bracket.verilog
+#                                     ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog punctuation.seperator.range.verilog
+#                                           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog constant.numeric.dec.verilog
+#                                            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog keyword.operator.arithmetic.verilog
+#                                             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog meta.item-index.verilog variable.other.readwrite.verilog
+#                                              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog meta.item-aceess.verilog punctuation.definition.end.bracket.verilog
+#                                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
 #                                                ^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
 #                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.accessor.verilog
-#                                                   ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.begin.verilog
-#                                                          ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
-#                                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
-#                                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog
+#                                                   ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                                                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                                                          ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                                                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
+#                                                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.parenthesis.end.verilog
 #                                                                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >            // The hierarchical instance names are memory.byte[7].p,
 #^^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog meta.sequential-block.verilog punctuation.whitespace.comment.leading.verilog

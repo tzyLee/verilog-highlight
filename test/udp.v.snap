@@ -799,13 +799,13 @@
 #    ^ source.verilog meta.module.verilog meta.module.body.verilog
 #     ^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.variable.module.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog
-#        ^ source.verilog meta.module.verilog meta.module.body.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.parenthesis.begin.verilog
 #         ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #           ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #             ^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #                ^^ source.verilog meta.module.verilog meta.module.body.verilog
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
-#                   ^ source.verilog meta.module.verilog meta.module.body.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.parenthesis.end.verilog
 #                    ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >buf #3 g2 (q, qi);
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
@@ -815,11 +815,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog
 #       ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #         ^ source.verilog meta.module.verilog meta.module.body.verilog
-#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
-#           ^ source.verilog meta.module.verilog meta.module.body.verilog
-#            ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
-#             ^^^ source.verilog meta.module.verilog meta.module.body.verilog
-#                ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.parenthesis.begin.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#            ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#              ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.parenthesis.end.verilog
 #                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >not #5 g3 (qb, qi);
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
@@ -829,11 +829,11 @@
 #      ^ source.verilog meta.module.verilog meta.module.body.verilog
 #       ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #         ^ source.verilog meta.module.verilog meta.module.body.verilog
-#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.begin.verilog
-#           ^^ source.verilog meta.module.verilog meta.module.body.verilog
-#             ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.separator.comma.verilog
-#              ^^^ source.verilog meta.module.verilog meta.module.body.verilog
-#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.definition.strength.end.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.parenthesis.begin.verilog
+#           ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#             ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#               ^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.parenthesis.end.verilog
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >
 >endmodule

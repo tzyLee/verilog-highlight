@@ -11,7 +11,8 @@ variables:
   variableIdentifier: "[_a-zA-Z][_$a-zA-Z0-9]*|{{escapedIdentifier}}"
   unsignedNum: "[0-9][_0-9]*"
   nonZeroUnsignedNum: "[1-9][_0-9]*"
-  commentOrSpace: '(/\*.*\*/)|(//.*\n)|\s'
+  commentOrSpace: '(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s'
+  # avoid /**/ (something) /**/ be tokenized as single comment
   constantIdentifier: '[_[:upper:]][_$[:digit:][:upper:]]*'
   constantVar: '({{constantIdentifier}})(?![_$[:alnum:]])'
   netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
@@ -370,15 +371,25 @@ repository:
       - include: '#list-of-identifiers'
 # A.2.2
   drive-charge-strength:
-    begin: '\('
-    beginCaptures:
-      '0': { name: punctuation.definition.strength.begin.verilog }
-    end: '\)'
-    endCaptures:
-      '0': { name: punctuation.definition.strength.end.verilog }
     patterns:
-      - include: '#punctuation-comma'
-      - include: '#constants'
+      - include: '#charge-strength'
+      - include: '#drive-strength'
+  drive-strength:
+    match: '(\()\s*({{strength}}|highz0|highz1)\s*(,)\s*({{strength}}|highz0|highz1)\s*(\))'
+    # assume no one would put comment inside drive-strength
+    captures:
+      '1': { name: punctuation.definition.strength.begin.verilog }
+      '2': { name: constant.language.strength.verilog }
+      '3': { name: punctuation.separator.comma.verilog }
+      '4': { name: constant.language.strength.verilog }
+      '5': { name: punctuation.definition.strength.end.verilog }
+  charge-strength:
+    match: '(\()\s*(small|medium|large)\s*(\))'
+    # assume no one would put comment inside drive-strength
+    captures:
+      '1': { name: punctuation.definition.strength.begin.verilog }
+      '2': { name: constant.language.strength.verilog }
+      '3': { name: punctuation.definition.strength.end.verilog }
 # A.2.2.3
   delay-value:
     patterns:
@@ -503,16 +514,68 @@ repository:
     patterns:
       - include: '#delay-2-or-3'
       - include: '#drive-charge-strength'
-      - begin: '\('
-        beginCaptures:
-          '0': { name: punctuation.definition.arguments.begin.verilog }
-        end: '\)'
-        endCaptures:
-          '0': { name: punctuation.definition.arguments.end.verilog }
-        patterns:
-          - include: '#expression'
+      - include: '#round-braces'
       - include: '#identifiers'
       - include: '#item-access'
+# A.4.1
+  instantiation:
+    # highlight module type when two identifiers are separated by space and on the same line
+    # the cost of distinguishing the form of module instantiation and assignment is too high
+    #
+    # current implementation is from: https://github.com/mshr-h/vscode-verilog-hdl-support
+    #
+    # This makes adjcent two word followed by ( or end-of-line become module instantiation
+    #    which can lead to some undesired effects, for example:
+    #      assign a
+    #      = 3;
+    # Structure like this would become instatiation.
+    # A possible fix is to exclude all `module-or-generate-item` keywords from module type identifier.
+    #
+    # drive-strength and delay2 of udp instantiation is not fully tested/implemented
+    patterns:
+      - begin: '^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|\[|$)'
+        beginCaptures:
+          '1': { name: entity.name.type.module.verilog }
+          '2': { name: comment.block.verilog }
+          '3': { name: comment.line.double-slash.verilog }
+          '4': { name: entity.name.variable.module.verilog }
+          '5': { name: comment.block.verilog }
+          '6': { name: comment.line.double-slash.verilog }
+        end: ';'
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
+        patterns:
+          - include: '#comments'
+          - include: '#range'
+          - include: '#round-braces'
+          - name: entity.name.variable.module.verilog
+            match: '{{variableIdentifier}}'
+      # instation with parameters
+      - begin: '^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)({{identifier}})(?:{{commentOrSpace}})+(?=#\()'
+        beginCaptures:
+          '1': { name: entity.name.type.module.verilog }
+          '2': { name: comment.block.verilog }
+          '3': { name: comment.line.double-slash.verilog }
+        end: ';'
+        endCaptures:
+          '0': { name: punctuation.terminator.statement.verilog }
+        patterns:
+          - include: '#comments'
+          - include: '#parameter-value-assignment'
+          - include: '#round-braces'
+          - name: entity.name.variable.module.verilog
+            match: '{{variableIdentifier}}'
+  parameter-value-assignment:
+    begin: '#\('
+    beginCaptures:
+      '0': { name: keyword.operator.delay.verilog }
+    end: '\)'
+    endCaptures:
+      '0': { name: punctuation.definition.parameter.end.verilog }
+    patterns:
+      - name: punctuation.definition.parameter.begin.verilog
+        match: '\('
+      - include: '#expression-list'
 # A.4.2
   generate-region:
     name: meta.generate.verilog
@@ -697,29 +760,7 @@ repository:
       - include: '#case-statement'
       - include: '#task-enable' # need to be before assignments
       - include: '#event-trigger'
-      # highlight module type when two identifiers are separated by space and on the same line
-      # the cost of distinguishing the form of module instantiation and assignment is too high
-      # current implementation is from: https://github.com/mshr-h/vscode-verilog-hdl-support
-      # 1. This makes adjcent two word followed by ( or end-of-line become module instantiation
-      #    which can lead to some undesired effects, for example:
-      #      assign a
-      #      = 3;
-      #    would become instatiation
-      # 2. This does not support parameter value assignment, which can be easily mixed up with delay, for example
-      #      Adder #(bitwidth) u1(a, b, sum);
-      #    is not highlighted.
-      # it should be fine in most situations.
-      # excluding all `module-or-generate-item` keywords may be a potential fix.
-      # TODO: matching all keywords of module-or-generate-item to properly tokenize
-      #       generate-constructs, and fixing the problem above.
-      - match: '^\s*(?!(?:initial|always|else)\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|$)'
-        captures:
-          '1': { name: entity.name.type.module.verilog }
-          '2': { name: comment.block.verilog }
-          '3': { name: comment.line.double-slash.verilog }
-          '4': { name: entity.name.variable.module.verilog }
-          '5': { name: comment.block.verilog }
-          '6': { name: comment.line.double-slash.verilog }
+      - include: '#instantiation'
       - include: '#blocking-assignment'
       - include: '#nonblocking-assignment'
       - include: '#procedural-timing-control'
@@ -1112,8 +1153,6 @@ repository:
           - include: "#number-hex"
           - include: "#number-oct"
           - include: "#number-bin"
-          - name: constant.language.strength.verilog
-            match: '\b({{strength}}|small|median|large|highz0|highz1)\b'
           - name: invalid.illegal.name.verilog"
             match: '\b[0-9]+\w+' # identifier can't start with number
   number-bin:

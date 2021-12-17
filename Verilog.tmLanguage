@@ -1124,37 +1124,73 @@
       </dict>
       <key>drive-charge-strength</key>
       <dict>
-        <key>begin</key>
-        <string>\(</string>
-        <key>beginCaptures</key>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#charge-strength</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#drive-strength</string>
+          </dict>
+        </array>
+      </dict>
+      <key>drive-strength</key>
+      <dict>
+        <key>match</key>
+        <string>(\()\s*(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|highz0|highz1)\s*(,)\s*(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|highz0|highz1)\s*(\))</string>
+        <key>captures</key>
         <dict>
-          <key>0</key>
+          <key>1</key>
           <dict>
             <key>name</key>
             <string>punctuation.definition.strength.begin.verilog</string>
           </dict>
-        </dict>
-        <key>end</key>
-        <string>\)</string>
-        <key>endCaptures</key>
-        <dict>
-          <key>0</key>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>constant.language.strength.verilog</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.separator.comma.verilog</string>
+          </dict>
+          <key>4</key>
+          <dict>
+            <key>name</key>
+            <string>constant.language.strength.verilog</string>
+          </dict>
+          <key>5</key>
           <dict>
             <key>name</key>
             <string>punctuation.definition.strength.end.verilog</string>
           </dict>
         </dict>
-        <key>patterns</key>
-        <array>
+      </dict>
+      <key>charge-strength</key>
+      <dict>
+        <key>match</key>
+        <string>(\()\s*(small|medium|large)\s*(\))</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
           <dict>
-            <key>include</key>
-            <string>#punctuation-comma</string>
+            <key>name</key>
+            <string>punctuation.definition.strength.begin.verilog</string>
           </dict>
+          <key>2</key>
           <dict>
-            <key>include</key>
-            <string>#constants</string>
+            <key>name</key>
+            <string>constant.language.strength.verilog</string>
           </dict>
-        </array>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.strength.end.verilog</string>
+          </dict>
+        </dict>
       </dict>
       <key>delay-value</key>
       <dict>
@@ -1182,7 +1218,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>#(?=((/\*.*\*/)|(//.*\n)|\s)*[\(\n])</string>
+            <string>#(?=((/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*[\(\n])</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -1544,33 +1580,8 @@
             <string>#drive-charge-strength</string>
           </dict>
           <dict>
-            <key>begin</key>
-            <string>\(</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.arguments.begin.verilog</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>\)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.arguments.end.verilog</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
+            <key>include</key>
+            <string>#round-braces</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1579,6 +1590,169 @@
           <dict>
             <key>include</key>
             <string>#item-access</string>
+          </dict>
+        </array>
+      </dict>
+      <key>instantiation</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*(?=\(|\[|$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.module.verilog</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>comment.block.verilog</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>comment.line.double-slash.verilog</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.variable.module.verilog</string>
+              </dict>
+              <key>5</key>
+              <dict>
+                <key>name</key>
+                <string>comment.block.verilog</string>
+              </dict>
+              <key>6</key>
+              <dict>
+                <key>name</key>
+                <string>comment.line.double-slash.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>;</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.terminator.statement.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#comments</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#range</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#round-braces</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>entity.name.variable.module.verilog</string>
+                <key>match</key>
+                <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+(?=#\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.module.verilog</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>comment.block.verilog</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>comment.line.double-slash.verilog</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>;</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.terminator.statement.verilog</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#comments</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#parameter-value-assignment</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#round-braces</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>entity.name.variable.module.verilog</string>
+                <key>match</key>
+                <string>[_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>parameter-value-assignment</key>
+      <dict>
+        <key>begin</key>
+        <string>#\(</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.delay.verilog</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.parameter.end.verilog</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.parameter.begin.verilog</string>
+            <key>match</key>
+            <string>\(</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression-list</string>
           </dict>
         </array>
       </dict>
@@ -2111,7 +2285,7 @@
       <key>block-label</key>
       <dict>
         <key>begin</key>
-        <string>:(?!=((/\*.*\*/)|(//.*\n)|\s)*[^_$[:alnum:]`\\])</string>
+        <string>:(?!=((/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*[^_$[:alnum:]`\\])</string>
         <key>beginCaptures</key>
         <dict>
           <key>0</key>
@@ -2187,41 +2361,8 @@
             <string>#event-trigger</string>
           </dict>
           <dict>
-            <key>match</key>
-            <string>^\s*(?!(?:initial|always|else)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*.*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*.*\*/)|(//.*\n)|\s)*(?=\(|$)</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.type.module.verilog</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>comment.block.verilog</string>
-              </dict>
-              <key>3</key>
-              <dict>
-                <key>name</key>
-                <string>comment.line.double-slash.verilog</string>
-              </dict>
-              <key>4</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.variable.module.verilog</string>
-              </dict>
-              <key>5</key>
-              <dict>
-                <key>name</key>
-                <string>comment.block.verilog</string>
-              </dict>
-              <key>6</key>
-              <dict>
-                <key>name</key>
-                <string>comment.line.double-slash.verilog</string>
-              </dict>
-            </dict>
+            <key>include</key>
+            <string>#instantiation</string>
           </dict>
           <dict>
             <key>include</key>
@@ -2272,7 +2413,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>#(?=((/\*.*\*/)|(//.*\n)|\s)*[\(\n])</string>
+            <string>#(?=((/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*[\(\n])</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -2329,7 +2470,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(@)(?=((/\*.*\*/)|(//.*\n)|\s)*[\(\n])</string>
+            <string>(@)(?=((/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*[\(\n])</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -3006,7 +3147,7 @@
         <string>meta.function-call.verilog</string>
         <key>begin</key>
         <string>(?x)
-  (?=([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+) ((/\*.*\*/)|(//.*\n)|\s)* (\())</string>
+  (?=([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+) ((/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)* (\())</string>
         <key>end</key>
         <string>(\))</string>
         <key>endCaptures</key>
@@ -3372,12 +3513,6 @@
               <dict>
                 <key>include</key>
                 <string>#number-bin</string>
-              </dict>
-              <dict>
-                <key>name</key>
-                <string>constant.language.strength.verilog</string>
-                <key>match</key>
-                <string>\b(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|small|median|large|highz0|highz1)\b</string>
               </dict>
               <dict>
                 <key>name</key>
