@@ -18,6 +18,7 @@ variables:
   netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
   strength: 'supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1'
   primitiveTypes: 'cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup'
+  nonInstantiationKeywords: 'initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join'
 
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
@@ -533,7 +534,7 @@ repository:
     #
     # drive-strength and delay2 of udp instantiation is not fully tested/implemented
     patterns:
-      - begin: '^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|\[|$)'
+      - begin: '^\s*(?!(?:{{nonInstantiationKeywords}})\b)({{identifier}})(?:{{commentOrSpace}})+({{identifier}})(?<!begin|if)(?:{{commentOrSpace}})*(?=\(|\[|$)'
         beginCaptures:
           '1': { name: entity.name.type.module.verilog }
           '2': { name: comment.block.verilog }
@@ -551,7 +552,7 @@ repository:
           - name: entity.name.variable.module.verilog
             match: '{{variableIdentifier}}'
       # instation with parameters
-      - begin: '^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)({{identifier}})(?:{{commentOrSpace}})+(?=#\()'
+      - begin: '^\s*(?!(?:{{nonInstantiationKeywords}})\b)({{identifier}})(?:{{commentOrSpace}})+(?=#\()'
         beginCaptures:
           '1': { name: entity.name.type.module.verilog }
           '2': { name: comment.block.verilog }

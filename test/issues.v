@@ -120,4 +120,12 @@ input i_RESET
 initial begin
   a/**/();
 end
+
+
+task reset; begin
+        # ( 0.25 * `CYCLE);
+        i_rst_n = 0;
+        # ((`RST_DELAY) * `CYCLE);
+        i_rst_n = 1;
+    end endtask
 endmodule

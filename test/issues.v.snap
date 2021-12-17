@@ -732,5 +732,60 @@
 #         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
 >end
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
+>
+>
+>task reset; begin
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog storage.type.task
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.function.task.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.section.task.begin.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog
+#            ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
+>        # ( 0.25 * `CYCLE);
+#^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.operator.delay.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.begin.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#            ^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog constant.numeric.float.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.operator.arithmetic.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                   ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog macro.verilog entity.name.function.preprocessor.verilog
+#                         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.end.verilog
+#                          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
+>        i_rst_n = 0;
+#^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#        ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.operator.assign.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog constant.numeric.dec.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
+>        # ((`RST_DELAY) * `CYCLE);
+#^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.operator.delay.verilog
+#         ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.begin.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.begin.verilog
+#            ^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog macro.verilog entity.name.function.preprocessor.verilog
+#                      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.definition.delay-expression.end.verilog
+#                       ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                          ^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog macro.verilog entity.name.function.preprocessor.verilog
+#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
+>        i_rst_n = 1;
+#^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#        ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
+#               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.operator.assign.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#                  ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog constant.numeric.dec.verilog
+#                   ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
+>    end endtask
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#    ^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog
+#        ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog storage.type.task
 >endmodule
 #^^^^^^^^^ source.verilog meta.module.verilog storage.type.module.verilog

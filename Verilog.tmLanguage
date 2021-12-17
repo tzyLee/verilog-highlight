@@ -155,7 +155,7 @@
             <key>name</key>
             <string>constant.language.strength.verilog</string>
             <key>match</key>
-            <string>\b(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|small|median|large|highz0|highz1)\b</string>
+            <string>\b(supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1|small|medium|large|highz0|highz1)\b</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1599,7 +1599,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*(?=\(|\[|$)</string>
+            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*(?=\(|\[|$)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -1667,7 +1667,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+(?=#\()</string>
+            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+(?=#\()</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
