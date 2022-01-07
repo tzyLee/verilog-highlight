@@ -733,6 +733,49 @@
 >end
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
 >
+>wire dummy;
+#^^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
+#    ^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>
+>function identity;
+#^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog storage.type.function
+#        ^ source.verilog meta.module.verilog meta.module.body.verilog
+#         ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog entity.name.function.verilog
+#                 ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.section.function.begin.verilog
+>input a;
+#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog keyword.other.port.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
+#       ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
+>begin
+#^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
+>  identity = a;
+#^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#  ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
+#          ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#           ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.operator.assign.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog variable.other.readwrite.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog punctuation.terminator.statement.verilog
+>end
+#^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.sequential-block.verilog keyword.other.block.verilog
+>endfunction
+#^^^^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog storage.type.function
+>
+>assign dummy = identity(i_sig_p);
+#^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog keyword.other.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog
+#       ^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog variable.other.readwrite.verilog
+#            ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog
+#             ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog keyword.operator.assignment.verilog
+#              ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog
+#               ^^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog meta.function-call.verilog entity.name.function.call.verilog
+#                       ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog meta.function-call.verilog punctuation.definition.arguments.begin.verilog
+#                        ^^^^^^^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog meta.function-call.verilog variable.other.readwrite.verilog
+#                               ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog meta.function-call.verilog punctuation.definition.arguments.end.verilog
+#                                ^ source.verilog meta.module.verilog meta.module.body.verilog meta.continuous-assignment.verilog punctuation.terminator.statement.verilog
 >
 >task reset; begin
 #^^^^ source.verilog meta.module.verilog meta.module.body.verilog storage.type.task

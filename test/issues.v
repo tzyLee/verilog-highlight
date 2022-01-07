@@ -121,6 +121,16 @@ initial begin
   a/**/();
 end
 
+wire dummy;
+
+function identity;
+input a;
+begin
+  identity = a;
+end
+endfunction
+
+assign dummy = identity(i_sig_p);
 
 task reset; begin
         # ( 0.25 * `CYCLE);

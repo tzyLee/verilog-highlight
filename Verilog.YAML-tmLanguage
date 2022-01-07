@@ -669,6 +669,9 @@ repository:
     patterns:
       - include: '#comments'
       - include: '#punctuation-assignment'
+      # function-call is stricter than lvalue,
+      # putting function-call before lvalue to avoid function call being parsed as identifier + ( expression )
+      - include: '#function-call'
       - include: '#lvalue'
       - include: '#expression' # rvalue
 # A.6.2
