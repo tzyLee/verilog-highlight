@@ -12,6 +12,10 @@ verilog-highlight uses TextMate to highlight verilog files in vscode.
 
 - Highlights escape strings and escape sequences in string literals
 - Highlights size and base parts of numeric literals
+- Highlights markdown codeblocks (not in markdown previews)
+<p align="center">
+<img src="docs/images/markdown.png" alt="highlighting-markdowns" width="350px">
+</p>
 
 ### Grammar
 
