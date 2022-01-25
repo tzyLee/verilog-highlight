@@ -897,9 +897,9 @@ util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
 vsce@latest:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/vsce/-/vsce-2.5.2.tgz#2853508190130eeb10a6e20fbe27aca1929244f0"
-  integrity sha512-4yojo8s1CeqFYhUEfUdm+3UY72SdMMh7aZU8sVqjSs1aJL5HHvxWh89sWC2j06ePr/VKWePkRCGP/uw65psJ8w==
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/vsce/-/vsce-2.6.3.tgz#5a50ec9894573350b10457064f71d1f2701789cf"
+  integrity sha512-PKfvAtG9rLT1evHiKOJpBHND1hUHOOf4lL7chZFp0KGu+Bpgcx3g3T5eq0d8Hmzd08zd3KJunsaA3iaNSmTU/A==
   dependencies:
     azure-devops-node-api "^11.0.1"
     chalk "^2.4.2"
