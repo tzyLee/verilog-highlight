@@ -16,9 +16,11 @@ variables:
   constantIdentifier: '[_[:upper:]][_$[:digit:][:upper:]]*'
   constantVar: '({{constantIdentifier}})(?![_$[:alnum:]])'
   netTypes: 'supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor'
+  varTypes: 'event|real|realtime|integer|time|genvar'
   strength: 'supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1'
   primitiveTypes: 'cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup'
   nonInstantiationKeywords: 'initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join'
+  moduleGenerateKeywords: '{{netTypes}}|trireg|reg|{{varTypes}}|task|function|parameter|localparam|specparam|defparam|assign|{{primitiveTypes}}|initial|always|for|if|case'
 
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
 patterns:
@@ -210,7 +212,8 @@ repository:
     begin: '\b(defparam)\b'
     beginCaptures:
       '1': { name: keyword.other.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
+    # Matches the beginning of other module-items to properly match incomplete items
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
@@ -280,7 +283,7 @@ repository:
     begin: '\b(localparam|parameter)\b'
     beginCaptures:
       '1': { name: keyword.other.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctution.terminator.statement.verilog }
     patterns:
@@ -290,11 +293,12 @@ repository:
       - include: '#parameter-types'
       - include: '#parameter-assignment'
       - include: '#punctuation-comma'
+      - include: '#comments'
   specparam-declaration:
     begin: '\b(specparam)\b'
     beginCaptures:
       '1': { name: keyword.other.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctution.terminator.statement.verilog }
     patterns:
@@ -305,6 +309,7 @@ repository:
       - include: '#parameter-types'
       - include: '#parameter-assignment'
       - include: '#punctuation-comma'
+      - include: '#comments'
 # A.2.1.2
   port-declarations:
     begin: '\b(inout|output|input)\b'
@@ -317,11 +322,12 @@ repository:
     begin: '\b(inout|output|input)\b'
     beginCaptures:
       '1': { name: keyword.other.port.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
       - include: '#port-declaration-content'
+      - include: '#comments'
   port-declaration-content:
     patterns:
       - name: support.type.reg.verilog
@@ -337,7 +343,7 @@ repository:
     begin: '\b({{netTypes}}|trireg)\b'
     beginCaptures:
       '1': { name: support.type.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
@@ -349,11 +355,12 @@ repository:
       - include: '#range'
       - include: '#delay-2-or-3'
       - include: '#list-of-net-assignments'
+      - include: '#comments'
   reg-declaration:
     begin: '\b(reg)\b'
     beginCaptures:
       '1': { name: support.type.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
@@ -361,15 +368,17 @@ repository:
         match: '\b(signed)\b'
       - include: '#range'
       - include: '#list-of-identifiers'
+      - include: '#comments'
   var-declaration:
-    begin: '\b(event|real|realtime|integer|time|genvar)\b'
+    begin: '\b({{varTypes}})\b'
     beginCaptures:
       '1': { name: support.type.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
       - include: '#list-of-identifiers'
+      - include: '#comments'
 # A.2.2
   drive-charge-strength:
     patterns:
@@ -509,7 +518,7 @@ repository:
     begin: '\b({{primitiveTypes}})\b'
     beginCaptures:
       '1': { name: support.type.verilog }
-    end: ';'
+    end: ';|(?=\b({{moduleGenerateKeywords}})\b)'
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
@@ -518,6 +527,7 @@ repository:
       - include: '#round-braces'
       - include: '#identifiers'
       - include: '#item-access'
+      - include: '#comments'
 # A.4.1
   instantiation:
     # highlight module type when two identifiers are separated by space and on the same line

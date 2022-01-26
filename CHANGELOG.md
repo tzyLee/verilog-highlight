@@ -4,6 +4,18 @@ All notable changes to the "verilog-highlight" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.6] - 2022-01-26
+
+### Enhancements
+1. Match incomplete declarations.
+   ```verilog
+   module test;
+   // incomplete register declaration
+   reg
+   // some comments
+   endmodule
+   ```
+
 ## [0.0.4] - 2022-01-07
 
 ### Fixes

@@ -598,7 +598,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -825,7 +825,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -858,6 +858,10 @@
             <key>include</key>
             <string>#punctuation-comma</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
         </array>
       </dict>
       <key>specparam-declaration</key>
@@ -873,7 +877,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -909,6 +913,10 @@
           <dict>
             <key>include</key>
             <string>#punctuation-comma</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
           </dict>
         </array>
       </dict>
@@ -947,7 +955,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -961,6 +969,10 @@
           <dict>
             <key>include</key>
             <string>#port-declaration-content</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
           </dict>
         </array>
       </dict>
@@ -1011,7 +1023,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -1050,6 +1062,10 @@
             <key>include</key>
             <string>#list-of-net-assignments</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
         </array>
       </dict>
       <key>reg-declaration</key>
@@ -1065,7 +1081,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -1090,6 +1106,10 @@
             <key>include</key>
             <string>#list-of-identifiers</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
+          </dict>
         </array>
       </dict>
       <key>var-declaration</key>
@@ -1105,7 +1125,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -1119,6 +1139,10 @@
           <dict>
             <key>include</key>
             <string>#list-of-identifiers</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
           </dict>
         </array>
       </dict>
@@ -1560,7 +1584,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>;</string>
+        <string>;|(?=\b(supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar|task|function|parameter|localparam|specparam|defparam|assign|cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup|initial|always|for|if|case)\b)</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -1590,6 +1614,10 @@
           <dict>
             <key>include</key>
             <string>#item-access</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comments</string>
           </dict>
         </array>
       </dict>
