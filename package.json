@@ -80,7 +80,7 @@
     "js-yaml": "latest",
     "plist": "latest",
     "typescript": "latest",
-    "vsce": "^2.7.0",
+    "vsce": "^2.9.1",
     "vscode-tmgrammar-test": "^0.1.1"
   }
 }
