@@ -4,6 +4,7 @@ All notable changes to the "verilog-highlight" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+
 ## [0.0.8] - 2023-04-18
 
 ### Fixes
@@ -17,7 +18,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
      // but current implementation allows it for simplicity.
    endmodule
    ```
-
 
 ## [0.0.7] - 2022-05-10
 
