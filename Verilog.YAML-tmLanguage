@@ -19,7 +19,7 @@ variables:
   varTypes: 'event|real|realtime|integer|time|genvar'
   strength: 'supply0|strong0|pull0|weak0|supply1|strong1|pull1|weak1'
   primitiveTypes: 'cmos|rcmos|bufif0|bufif1|notif0|notif1|nmos|pmos|rnmos|rpmos|and|nand|or|nor|xor|xnor|buf|not|tranif0|tranif1|rtranif1|rtranif0|tran|rtran|pulldown|pullup'
-  nonInstantiationKeywords: 'initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join|input|output|inout'
+  nonInstantiationKeywords: 'initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join|input|output|inout|{{netTypes}}|trireg|reg|{{varTypes}}'
   moduleGenerateKeywords: '{{netTypes}}|trireg|reg|{{varTypes}}|task|function|parameter|localparam|specparam|defparam|assign|{{primitiveTypes}}|initial|always|for|if|case'
 
 # TODO: check (begin:) and (end:) does not match `begin, `end, \begin ...
@@ -367,7 +367,7 @@ repository:
       - name: keyword.other.verilog
         match: '\b(signed)\b'
       - include: '#range'
-      - include: '#list-of-identifiers'
+      - include: '#list-of-variable-port-identifiers'
       - include: '#comments'
   var-declaration:
     begin: '\b({{varTypes}})\b'
@@ -377,7 +377,7 @@ repository:
     endCaptures:
       '0': { name: punctuation.terminator.statement.verilog }
     patterns:
-      - include: '#list-of-identifiers'
+      - include: '#list-of-variable-port-identifiers'
       - include: '#comments'
 # A.2.2
   drive-charge-strength:
@@ -578,6 +578,7 @@ repository:
             match: '{{variableIdentifier}}'
   parameter-value-assignment:
     begin: '#\('
+    # begin: '#(?=({{commentOrSpace}})*[\(\n])' TODO if there's space between # and (, it won't be matched
     beginCaptures:
       '0': { name: keyword.operator.delay.verilog }
     end: '\)'
