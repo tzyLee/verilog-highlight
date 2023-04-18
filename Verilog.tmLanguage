@@ -1104,7 +1104,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#list-of-identifiers</string>
+            <string>#list-of-variable-port-identifiers</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1138,7 +1138,7 @@
         <array>
           <dict>
             <key>include</key>
-            <string>#list-of-identifiers</string>
+            <string>#list-of-variable-port-identifiers</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1627,7 +1627,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join|input|output|inout)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*(?=\(|\[|$)</string>
+            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join|input|output|inout|supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?&lt;!begin|if)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)*(?=\(|\[|$)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -1695,7 +1695,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join|input|output|inout)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+(?=#\()</string>
+            <string>^\s*(?!(?:initial|always|else|forever|default|assign|localparam|parameter|defparam|begin|end|endtask|endfunction|fork|join|input|output|inout|supply0|supply1|tri|triand|trior|tri0|tri1|uwire|wire|wand|wor|trireg|reg|event|real|realtime|integer|time|genvar)\b)([_a-zA-Z][_$a-zA-Z0-9]*|\\[!-~]+(?=\s)|\$[[:alnum:]_$]+)(?:(/\*(?:[^\*]|\*(?!/))*\*/)|(//.*\n)|\s)+(?=#\()</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
