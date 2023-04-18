@@ -212,7 +212,9 @@
 #                  ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >reg #1 a;
 #^^^ source.verilog meta.module.verilog meta.module.body.verilog support.type.verilog
-#   ^^^^ source.verilog meta.module.verilog meta.module.body.verilog
+#   ^^ source.verilog meta.module.verilog meta.module.body.verilog
+#     ^ source.verilog meta.module.verilog meta.module.body.verilog constant.numeric.dec.verilog
+#      ^ source.verilog meta.module.verilog meta.module.body.verilog
 #       ^ source.verilog meta.module.verilog meta.module.body.verilog variable.other.readwrite.verilog
 #        ^ source.verilog meta.module.verilog meta.module.body.verilog punctuation.terminator.statement.verilog
 >assign b = #2 c;
