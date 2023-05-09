@@ -3568,7 +3568,7 @@
     '[sS]?[bB] # binary base
   )
   [01xXzZ?][_01xXzZ?]* # binary value
-  \b # boundary</string>
+  ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -3590,7 +3590,7 @@
     '[sS]?[oO] # octal base
   )
   [0-7xXzZ?][_0-7xXzZ?]* # octal value
-  \b # boundary</string>
+  ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -3612,7 +3612,7 @@
     '[sS]?[hH] # hex base
   )
   [0-9a-fA-FxXzZ?][_0-9a-fA-FxXzZ?]* # hex value
-  \b # boundary</string>
+  ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -3641,7 +3641,7 @@
     )
   )
   (?!') # not followed by a ' (allowing bin, hex ... to match)
-  \b # boundary</string>
+  ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary</string>
         <key>captures</key>
         <dict>
           <key>1</key>

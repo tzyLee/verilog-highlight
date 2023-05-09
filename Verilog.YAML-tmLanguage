@@ -1180,7 +1180,7 @@ repository:
           '[sS]?[bB] # binary base
         )
         [01xXzZ?][_01xXzZ?]* # binary value
-        \b # boundary
+        ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary
     captures:
       "1": { name: storage.type.number.verilog }
   number-oct:
@@ -1193,7 +1193,7 @@ repository:
           '[sS]?[oO] # octal base
         )
         [0-7xXzZ?][_0-7xXzZ?]* # octal value
-        \b # boundary
+        ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary
     captures:
       "1": { name: storage.type.number.verilog }
   number-hex:
@@ -1206,7 +1206,7 @@ repository:
           '[sS]?[hH] # hex base
         )
         [0-9a-fA-FxXzZ?][_0-9a-fA-FxXzZ?]* # hex value
-        \b # boundary
+        ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary
     captures:
       "1": { name: storage.type.number.verilog }
   number-dec:
@@ -1226,7 +1226,7 @@ repository:
           )
         )
         (?!') # not followed by a ' (allowing bin, hex ... to match)
-        \b # boundary
+        ((?=[^a-zA-Z0-9_])|(?=\?(?![:;?]))) # boundary
     captures:
       "1":
         name: storage.type.number.verilog

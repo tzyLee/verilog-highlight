@@ -5,6 +5,32 @@ All notable changes to the "verilog-highlight" extension will be documented in t
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
+## [0.0.9] - 2023-05-09
+
+### Fixes
+
+1. Fixed case statements with don't cares
+   ```verilog
+   module temp;
+      always @(*) begin
+         casez(c)
+         5'b11111: d = 0;
+         5'b0000?: d = 1;
+         5'b1????: d = 2;
+         5'b010Z?: d = 3;
+         default:  d = 0;
+         endcase
+      end
+      // Note: It does not work well with font ligature on
+      //       Also, some ternary expressions is broken (but the use of don't cares in ternary expression is rare)
+
+      // Same code, three colorings
+      assign e1 = c==5'h123Z??Z:4'b110?;
+      assign e2 = c==5'h123Z?? Z:4'b110?;
+      assign e3 = c==5'h123Z? ?Z:4'b110?;
+   endmodule
+   ```
+
 ## [0.0.8] - 2023-04-18
 
 ### Fixes
