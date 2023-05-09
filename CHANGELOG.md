@@ -5,7 +5,7 @@ All notable changes to the "verilog-highlight" extension will be documented in t
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
-## [0.0.9] - 2023-05-09
+## [0.0.10] - 2023-05-09
 
 ### Fixes
 
